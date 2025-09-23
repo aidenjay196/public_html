@@ -1,0 +1,86 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+
+h1 {    
+    margin-top: 50px;
+}
+
+p2 { 
+    margin-bottom: 10px;
+}
+
+body {
+    background-color: gray;
+}
+
+div.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+    background-color: rgba(47, 79, 79, 0.411);
+}
+
+nav {
+    height:50px;
+    width:100;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 230px; /* used to center nav */
+    margin-bottom: 10px;
+    font-weight: bold;
+    margin-top: 15px;
+    z-index: 5;
+    position: absolute;
+  }
+
+  nav a {
+    padding: 8px 6px 6px 6px;
+    border-top: 1px solid #ffffff;
+    border-left: 1px solid #ffffff;
+    border-bottom: 1px solid #000000;
+    border-right: 1px solid #000000;
+    text-decoration: none;
+    color: #ffffff;
+    margin-right: 15px;
+    border-radius: 55px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+
+
+.sidebar {
+  padding-left: 15px; /* creats a bit of margin from the main section */
+  padding-right: 0px; /* more pushes is in compared to the top and bottom */
+  padding-top: 30px; /* this pushes is down a little below the nav bar and feels less crowded */
+  width: 200px;
+  float: right;
+}
+
+.footer {
+    clear: both; /* this pushes the footer below floating elements */
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 0px;
+    padding-bottom: 25px;
+    width: 850px;
+    color: white;
+    font-family: "Ludia Console", "Courier New", monospace}
+
+footer a {
+  color: white;
+}
+.footerleft {
+  float: left;
+  width: 450px;
+}
+.footerright {
+  float: right;
+  width: 350px;
+  text-align: right;
+}
