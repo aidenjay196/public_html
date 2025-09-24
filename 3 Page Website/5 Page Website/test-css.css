@@ -59,6 +59,8 @@ nav {
   float: right;
 }
 
+
+
 .footer {
     clear: both; /* this pushes the footer below floating elements */
     bottom: 0;
