@@ -1,0 +1,58 @@
+<html>
+<head>
+     <meta charset="utf-8"
+    <title> Animal Sounds</title>
+</head>
+
+<body>
+
+    <audio id="audiotag1" src="sounds/bear.wav" preload="auto"></audio>
+    <audio id="audiotag2" src="sounds/bird.wav" preload="auto"></audio>
+    <audio id="audiotag3" src="sounds/bison.wav" preload="auto"></audio>
+    <audio id="audiotag4" src="sounds/cat.wav" preload="auto"></audio>
+    <audio id="audiotag4" src="sounds/goat.wav" preload="auto"></audio>
+    <h1> Javascript Client Side Script</h1>
+
+    <p> Choose an Animal:</p>
+
+    <select id="animalsounds"
+        <option value="bear">Bear</option>
+        <option value="bird">Bird</option>
+        <option value="bison">Bison</option>
+        <option value="cat">Cat</option>
+        <option value="goat">Goat</option>
+    </select>
+
+    <button type="button" onclick="myFunction()">Submit</button>
+
+    <!-- outputs animal image-->
+    <p id="demo"></p>
+
+    <script> 
+
+    function myFunction() {
+        var thesound, text;
+
+        thesound = document.getElementbyId("animalsounds").value;
+
+        if(thesound == "bear") {
+            text = "<img src=images/bear.jpg>"
+            document.getElementById('audiotag1').play();
+        } else if (thesound == "bird") {
+            text = "<img src=images/bird.jpg>";
+            document.getElementById('audiotag2').play();
+        } else if (thesound == "bison") {
+            text = "<img src=images/bison.jpg>";
+            document.getElementById('audiotag3').play();
+        } else if (thesound == "cat") {
+            text = "<img src=images/cat.jpg>";
+            document.getElementById('audiotag4').play();
+        } else if (thesound == "goat") {
+            text = "<img src=images/goat.jpg>";
+            document.getElementById('audiotag5').play();
+        }
+        document.getElementById("demo").innerHTML = text;
+    }
+    </script>
+</body>
+</html>
