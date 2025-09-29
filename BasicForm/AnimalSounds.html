@@ -10,16 +10,16 @@
     <audio id="audiotag2" src="sounds/bird.wav" preload="auto"></audio>
     <audio id="audiotag3" src="sounds/bison.wav" preload="auto"></audio>
     <audio id="audiotag4" src="sounds/cat.wav" preload="auto"></audio>
-    <audio id="audiotag4" src="sounds/goat.wav" preload="auto"></audio>
+    <audio id="audiotag5" src="sounds/goat.wav" preload="auto"></audio>
     <h1> Javascript Client Side Script</h1>
 
     <p> Choose an Animal:</p>
 
-    <select id="animalsounds"
-        <option value="bear">Bear</option>
+    <select id="animalsounds">
         <option value="bird">Bird</option>
         <option value="bison">Bison</option>
         <option value="cat">Cat</option>
+        <option value="bear">Bear</option>
         <option value="goat">Goat</option>
     </select>
 
@@ -33,10 +33,10 @@
     function myFunction() {
         var thesound, text;
 
-        thesound = document.getElementbyId("animalsounds").value;
+        thesound = document.getElementById("animalsounds").value;
 
         if(thesound == "bear") {
-            text = "<img src=images/bear.jpg>"
+            text = "<img src=images/bear.jpg>";
             document.getElementById('audiotag1').play();
         } else if (thesound == "bird") {
             text = "<img src=images/bird.jpg>";
