@@ -28,7 +28,7 @@ nav {
     width:100;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 130px; /* used to center nav */
+    padding-left: 240px; /* used to center nav */
     margin-bottom: 10px;
     font-weight: bold;
     margin-top: 15px;
@@ -53,13 +53,17 @@ nav {
 
 .sidebar {
   padding-left: 15px; /* creats a bit of margin from the main section */
-  padding-right: 0px; /* more pushes is in compared to the top and bottom */
-  padding-top: 30px; /* this pushes is down a little below the nav bar and feels less crowded */
-  width: 200px;
+  padding-right: 5px; /* more pushes is in compared to the top and bottom */
+  padding-top: 20px; /* this pushes is down a little below the nav bar and feels less crowded */
+  width: 190px;
   float: right;
 }
 
-
+img.floatright {
+  float: right;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
 
 .footer {
     clear: both; /* this pushes the footer below floating elements */
