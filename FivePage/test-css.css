@@ -17,10 +17,10 @@ body {
 }
 
 div.container {
-    margin-left: auto;
-    margin-right: auto;
-    width: 900px;
-    background-color: rgba(47, 79, 79, 0.411);
+  margin-left: auto;
+  margin-right: auto;
+  width: 900px;
+  background-color: rgba(47, 79, 79, 0.411);
 }
 
 nav {
@@ -49,13 +49,31 @@ nav {
     font-family: "Lucida Console", "Courier New", monospace;
 }
 
+table, th, td {
+  border:1px solid black;
+  border-collapse: collapse;
+}
 
+.green-day {
+  background-color: lightgreen;
+}
+.white-day {
+  background-color: white;
+}
+
+tr.block2 {
+  background-color: darkslategray;
+}
+
+tr.block4 {
+  background-color: darkslategray;
+}
 
 .sidebar {
   padding-left: 15px; /* creats a bit of margin from the main section */
-  padding-right: 5px; /* more pushes is in compared to the top and bottom */
-  padding-top: 20px; /* this pushes is down a little below the nav bar and feels less crowded */
-  width: 190px;
+  padding-right: 0px; /* more pushes is in compared to the top and bottom */
+  padding-top: 0px; /* this pushes is down a little below the nav bar and feels less crowded */
+  width: 0px;
   float: right;
 }
 
