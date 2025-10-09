@@ -23,6 +23,10 @@ div.container {
   background-color: rgba(47, 79, 79, 0.411);
 }
 
+.headerBox {
+  border: 5px  black;
+}
+
 nav {
     height:50px;
     width:100;
@@ -62,11 +66,15 @@ table, th, td {
 }
 
 tr.block2 {
-  background-color: darkslategray;
+  background-color: rgba(51, 61, 61, 0.589);
 }
 
 tr.block4 {
-  background-color: darkslategray;
+  background-color: rgba(51, 61, 61, 0.589);
+}
+
+.video-container {
+  text-align: center;
 }
 
 .sidebar {
@@ -82,6 +90,16 @@ img.floatright {
   margin-left: 10px;
   margin-bottom: 10px;
 }
+
+div.rollover {
+  background-image: url("images/nichememe.jpeg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width:200px;
+  height: 200px;
+  float:right;
+}
+
 
 .footer {
     clear: both; /* this pushes the footer below floating elements */

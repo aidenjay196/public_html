@@ -1,6 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    form {
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #f9f9f9;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    input[type="date"],
+    select,
+    textarea {
+      width: calc(100% - 22px); /* Account for padding and border */
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 5px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style> 
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="script.js"> </script>
   <link rel="stylesheet" href="test-css.css">
@@ -21,10 +73,75 @@
         <a href="contact.html" class="button">Contact</a>
       </nav>
 
+      <section class="sidebar">
+        <img src="images/guyblack.png" width="250" alt=""/>
+    <p>&nbsp;</p>
+      </section>
+      
+      
       <main> <!-- main content area -->
         <h1 style="text-align: center;">Contact Me</h1>
-        <p2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel sapien vel enim ultricies pharetra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla eget sapien quis mauris dapibus tincidunt. Vivamus ac sapien quis mauris dapibus tincidunt. Vivamus ac sapien quis mauris dapibus tincidunt. Vivamus ac sapien quis mauris dapibus tincidunt. Vivamus ac sapien quis mauris dapibus tincidunt. Vivamus ac sapien quis mauris dapibus tincidunt. Vivamus ac sapien quis mauris dapibus tincidunt. Vivamus ac sapien quis mauris dapibus tincidunt. Vivamus ac sapien quis mauris dapibus.</p>
-        <p1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel sapien vel enim ultricies pharetra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla eget sapien quis mauris dapibus tincidunt. Vivamus ac sapien quis mauris dapibus tincidunt. Vivamus ac sapien quis mauris dapibus tincidunt. Vivamus ac sapien quis mauris dapibus.</p>
+        <form action="result.php" method="get" autocomplete="on">
+          <fieldset>
+            <legend>Contact Information</legend>
+            <label for="fname">First Name:</label>
+            <input type="text" id="fname" name="fname" placeholder="John" required><br><br>
+      
+            <label for="lname">Last Name:</label>
+            <input type="text" id="lname" name="lname" placeholder="Doe" required><br><br>
+      
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="john.doe@example.com" required><br><br>
+      
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890"><br><br>
+          </fieldset>
+      
+          <fieldset>
+            <legend>Demographics</legend>
+            <label for="country">Country:</label>
+            <select id="country" name="country">
+              <optgroup label="Europe">
+                <option value="uk">United Kingdom</option>
+                <option value="de">Germany</option>
+              </optgroup>
+              <optgroup label="North America">
+                <option value="us" selected>United States</option>
+                <option value="ca">Canada</option>
+              </optgroup>
+            </select><br><br>
+      
+            <p>Gender:</p>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label><br>
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Other</label><br><br>
+      
+            <p>Favorite Hobbies:</p>
+            <input type="checkbox" id="hobby1" name="hobby1" value="reading">
+            <label for="hobby1">Reading</label><br>
+            <input type="checkbox" id="hobby2" name="hobby2" value="coding">
+            <label for="hobby2">Coding</label><br>
+            <input type="checkbox" id="hobby3" name="hobby3" value="sports">
+            <label for="hobby3">Sports</label><br><br>
+          </fieldset>
+      
+          <fieldset>
+            <legend>Additional Information</legend>
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob"><br><br>
+      
+            <label for="volume">Volume (0 to 100):</label>
+            <input type="range" id="volume" name="volume" min="0" max="100" value="50"><br><br>
+      
+            <label for="bio">Biography:</label><br>
+            <textarea id="bio" name="bio" rows="4" cols="50"></textarea><br><br>
+          </fieldset>
+      
+          <button type="submit">Submit Registration</button>
+        </form>
       </main>
      
       <section class="sidebar"> <!-- sidebar area -->
