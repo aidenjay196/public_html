@@ -100,7 +100,14 @@ div.rollover {
   float:right;
 }
 
-
+div.rollover:hover {
+  background-image: url("images/steven.jpeg");
+    background-size: contain;
+  background-repeat: no-repeat;
+  width:200px;
+  height:200px;
+  float:right;
+}
 .footer {
     clear: both; /* this pushes the footer below floating elements */
     bottom: 0;

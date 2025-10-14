@@ -16,7 +16,7 @@
         <img src="images/headergood.jpg" class="center" width="900" alt="" />
       </div>
       <nav> <!-- holds the navigation -->
-        <a href="template.html" class="active button">Home</a>
+        <a href="index.html" class="active button">Home</a>
         <a href="about.html" class="button">About</a>
         <a href="favorite.html", class="button">Likes</a>
         <a href="least.html" class="button">Dislikes</a>
@@ -32,7 +32,7 @@
       <main> <!-- main content area -->
   <h1 style="text-align: center;">Contact Me</h1>
   <div align="center">
-    <form id="contactForm" onsubmit="return validateForm()">
+    <form id="contactForm" onsubmit="return validateForm()"> <!-- form start-->
       <fieldset style="width: 400px; text-align: left;">
         <legend>Contact me:</legend>
         First Name: <input type="text" id="fname" name="fname"><br><br>
@@ -66,11 +66,26 @@
         <input type="radio" name="role" value="other"> Other<br><br>
         <textarea name="comment" id="comment" rows="5" cols="45">Please leave a comment</textarea><br><br>
         <input type="reset" value="Reset">
-        <input type="submit" value="Submit">
+        <button type="submit" onclick="myFunction()">Submit</button>
       </fieldset>
     </form>
   </div>
-<script>
+<p id="demo" style="text-align: center;"><script> <!-- centers animal image-->
+function myFunction() {
+    var thesound, text;
+    thesound = document.getElementById("creature").value;
+    
+    if(thesound == "ramacheeks") {
+        text = "<img src=images/mason.webp>";
+    } else if (thesound == "ben and jerry ice cream") {
+            text = "<img src=images/benjerry.png>";
+    } else if (thesound == "ryan ritz cracker") {
+            text = "<img src=images/ritzsidebar.png>";
+    } else if (thesound == "steven") {
+            text = "<img src=images/steven.jpeg>";
+    }
+    document.getElementById("demo").innerHTML = text;
+  }
   function validateForm() {
     var fname = document.getElementById('fname').value.trim();
     var lname = document.getElementById('lname').value.trim();
@@ -107,7 +122,7 @@
       "Role: " + roleValue + "\n" +
       "Comment: " + comment
     );
-    return false; // Prevent actual form submission
+    return false; // prevent actual form submission
   }
 </script>
 </main>
