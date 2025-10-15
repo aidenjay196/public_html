@@ -52,6 +52,13 @@ nav {
     border-radius: 55px;
     font-family: "Lucida Console", "Courier New", monospace;
 }
+nav a.active, nav a:hover {
+  border-top: 1px solid #000000;
+  border-left: 1px solid #000000;
+  border-bottom: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
+  background-color: darkgray;
+}
 
 table, th, td {
   border:1px solid black;
@@ -108,6 +115,27 @@ div.rollover:hover {
   height:200px;
   float:right;
 }
+
+
+div.anotherrollover {
+  background-image: url("images/diddyblud.jpeg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width:200px;
+  height: 154px;
+  float:right;
+}
+
+
+div.anotherrollover:hover {
+  background-image: url("images/xxxtenation.jpeg");
+    background-size: contain;
+  background-repeat: no-repeat;
+  width:200px;
+  height: 154px;
+  float:right;
+}
+
 .footer {
     clear: both; /* this pushes the footer below floating elements */
     bottom: 0;
