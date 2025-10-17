@@ -61,8 +61,9 @@ nav a.active, nav a:hover {
 }
 
 table, th, td {
-  border:1px solid black;
+  border: 3px black solid;
   border-collapse: collapse;
+
 }
 
 .green-day {
@@ -72,11 +73,15 @@ table, th, td {
   background-color: white;
 }
 
+tr.titleblock {
+  background-color: rgba(51, 61, 61, 0.589);
+}
+
 tr.block2 {
   background-color: rgba(51, 61, 61, 0.589);
 }
 
-tr.block4 {
+tr.block3 {
   background-color: rgba(51, 61, 61, 0.589);
 }
 
