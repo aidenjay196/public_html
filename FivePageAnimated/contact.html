@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+  </style> 
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="script.js"> </script>
+  <link rel="stylesheet" href="test-css.css">
+  <title>Five Page Website Template</title>
+</head>
+  <body>
+
+    <div class="container"> <!-- contains the website -->
+      <div class="header">
+       
+        <img src="images/headergood.jpg" class="center" width="900" alt="" />
+      </div>
+      <nav> <!-- holds the navigation -->
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="favorite.html",>Likes</a>
+        <a href="least.html">Dislikes</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+
+      <section class="sidebar">
+        <img src="images/guyblack.png" width="250" alt=""/>
+    <p>&nbsp;</p>
+      </section>
+
+      
+      <main> <!-- main content area -->
+  <h3 style="text-align: center;">Contact Me</h3>
+  <div align="center">
+    <form id="contactForm" onsubmit="return validateForm()"> <!-- form start-->
+      <fieldset style="width: 400px; text-align: left;">
+        <legend>Contact me:</legend>
+        First Name: <input type="text" id="fname" name="fname"><br><br>
+        Last Name: <input type="text" id="lname" name="lname"><br><br>
+        Password: <input type="password" id="password" name="password"><br><br>
+        Email: <input type="email" id="email" name="email"><br><br>
+        Select your favorite mythical creature:
+        <select id="creature" name="creature">
+          <option value="">--Select--</option>
+          <option value="ramacheeks">ramacheeks</option>
+          <option value="ben and jerry ice cream">ben and jerry ice cream</option>
+          <option value="ryan ritz cracker">ryan ritz cracker</option>
+          <option value="steven">steven</option>
+        </select>
+        <br><br>
+        <label for="transport">Type of Transportation:</label>
+        <select id="transport" name="transport">
+          <option value="">--Select--</option>
+          <option value="car">Car</option>
+          <option value="bike">Bike</option>
+          <option value="bus">Bus</option>
+          <option value="walk">Walk</option>
+          <option value="other">Other</option>
+        </select>
+        <br><br>
+        <input type="radio" name="role" value="freshman"> Freshman<br>
+        <input type="radio" name="role" value="sophomore"> Sophomore<br>
+        <input type="radio" name="role" value="junior"> Junior<br>
+        <input type="radio" name="role" value="senior"> Senior<br>
+        <input type="radio" name="role" value="teacher"> Teacher<br>
+        <input type="radio" name="role" value="other"> Other<br><br>
+        <textarea name="comment" id="comment" rows="5" cols="45">Please leave a comment</textarea><br><br>
+        <input type="reset" value="Reset">
+        <button type="submit" onclick="myFunction()">Submit</button>
+      </fieldset>
+    </form>
+  </div>
+<p id="demo" style="text-align: center;"><script> <!-- centers animal image-->
+function myFunction() {
+    var thesound, text;
+    thesound = document.getElementById("creature").value;
+    
+    if(thesound == "ramacheeks") {
+        text = "<img src=images/mason.webp>";
+    } else if (thesound == "ben and jerry ice cream") {
+            text = "<img src=images/benjerry.png>";
+    } else if (thesound == "ryan ritz cracker") {
+            text = "<img src=images/ritzsidebar.png>";
+    } else if (thesound == "steven") {
+            text = "<img src=images/steven.jpeg>";
+    }
+    document.getElementById("demo").innerHTML = text;
+  }
+  function validateForm() {
+    var fname = document.getElementById('fname').value.trim();
+    var lname = document.getElementById('lname').value.trim();
+    var password = document.getElementById('password').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var creature = document.getElementById('creature').value;
+    var transport = document.getElementById('transport').value;
+    var comment = document.getElementById('comment').value.trim();
+
+    // Check radio buttons
+    var roles = document.getElementsByName('role');
+    var roleSelected = false;
+    var roleValue = "";
+    for (var i = 0; i < roles.length; i++) {
+      if (roles[i].checked) {
+        roleSelected = true;
+        roleValue = roles[i].value;
+        break;
+      }
+    }
+
+    if (!fname || !lname || !password || !email || !creature || !transport || !roleSelected || !comment) {
+      alert('Please fill in all fields.');
+      return false;
+    }
+
+    alert(
+      "First Name: " + fname + "\n" +
+      "Last Name: " + lname + "\n" +
+      "Password: " + password + "\n" +
+      "Email: " + email + "\n" +
+      "Mythical Creature: " + creature + "\n" +
+      "Transportation: " + transport + "\n" +
+      "Role: " + roleValue + "\n" +
+      "Comment: " + comment
+    );
+    return false; // prevent actual form submission
+  }
+</script>
+</main>
+     
+ <section class="sidebar"> <!-- sidebar area -->
+  </section>
+ 
+   <footer class="footer">
+        <hr>
+        <footer class="footerleft">
+          © 2025
+        </footer>
+        <footer class="footerright">
+          <a href="mailto:27aidenpatel@sau11.org">email me</a>
+        </footer>
+      </footer>
+   
+    </div>  <!-- close the container -->
+  </body>
+</html>
