@@ -59,11 +59,22 @@ div.slide-up {
   }
   to {
     margin-top: 0%;
-    height: 100%;
+    height: 0%;
   }
 }
 
 
+.rotate {
+  animation: 4s rotate;
+}
+@keyframes rotate {
+  from {
+    transform: rotateY(0deg)
+  }
+  to {
+    transform: rotateY(18000deg)
+  }
+}
 
 h1 {
   padding: 0px;
@@ -95,6 +106,9 @@ h3 {
   font-size: 32px;
 }
 
+h4 {
+  font-size:32px
+}
 
 p2 { 
     margin-bottom: 10px;
@@ -123,7 +137,7 @@ nav {
   padding-left: 240px; /* used to center nav */
   margin-bottom: 10px;
   font-weight: bold;
-  margin-top: 15px;
+  margin-top: 30px;
   z-index: 5;
   position: absolute;
   }
@@ -185,10 +199,31 @@ tr.block3  {
   float: right;
 }
 
-img.floatright {
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg) scale(0,0);
+  }
+  to {
+    transform: rotate(720deg) scale(1,1);
+  }
+}
+
+img.butka {
   float: right;
   margin-left: 10px;
   margin-bottom: 10px;
+}
+
+  img.floatrightspin {
+  float: right;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  animation: spin 5s;
+  transition: transform 3s;
+}
+img.floatrightspin:hover {
+  transform: translateY(-50px);
 }
 
 div.rollover {
