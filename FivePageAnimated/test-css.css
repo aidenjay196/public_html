@@ -193,6 +193,10 @@ tr.block3  {
 }
 
 .video-container {
+  /* center videos and iframes responsively */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
@@ -200,8 +204,11 @@ tr.block3  {
   padding-left: 15px; /* creats a bit of margin from the main section */
   padding-right: 0px; /* more pushes is in compared to the top and bottom */
   padding-top: 0px; /* this pushes is down a little below the nav bar and feels less crowded */
-  width: 0px;
+  /* make sidebar take up space inside the container instead of collapsing */
+  width: 250px;
   float: right;
+  /* push the sidebar down so it clears the nav and doesn't overlap it */
+  margin-top: 60px;
 }
 
 
