@@ -5,8 +5,8 @@
 /* Not all elements are defined in this file, so you'll most likely want to refer to the index.html as well. */
 
 /************************************************** 
-Student Name:
-Date of Project:
+Student Name: Aiden Patel
+Date of Project: 10/25/2025
 
 Start Mr. Reynolds' Directions:
 Make sure you list your color palette colors in the comment below.
@@ -28,65 +28,80 @@ Make sure you incorporate C.R.A.P into your design.
 /*all HTML tags are by default position: relative*/
 /*their position is relative to the other tags around them*/
 /*I am placing this default command in every block so the IDE does not highlight the command for being empty*/
-
+/*Delete this command from the blocks when you put your own commands in*/
 html {
   position:relative;
 }
 
+/*every CSS block needs a comment, if you don't need it delete it*/
 body { 
   position:relative;
+  border: 5px solid red;
+  background-image: url('images/japan-fantasy-landscape_23-2151870141.png ');
 }
 
+
+/*every CSS block needs a comment, if you don't need it delete it*/
 /*will style all your a tags*/
 a:link { 
 	color: #B7A5DF;
-    border: 3px solid black;
 }
 
+/*every CSS block needs a comment, if you don't need it delete it*/
 /*will control what happens on a hover of a tags*/
 a:hover { 
   position:relative;
 }
 
+/*every CSS block needs a comment, if you don't need it delete it*/
 /*something like this control what to a tags only in the .sidebar*/
 .sidebar a:link { 
   position:relative;
 }
 
+/*every CSS block needs a comment, if you don't need it delete it*/
 /*this tag puts a dotted underline under text*/
 abbr {
 	/*border-bottom: none;*/
   position:relative;
 }
 
+/*every CSS block needs a comment, if you don't need it delete it*/
 /*surrounds entire site except exta divs*/
 .page-wrapper { 
   position:relative;
 }
 
+/*every CSS block needs a comment, if you don't need it delete it*/
 /*surrounds header, .summary, .preamble*/
 section.intro { 
   position:relative;
+  border: 5px solid darkorange;
+  background-color: darkgoldenrod;
+  width: 500px;
 }
+
 
 /*every CSS block needs a comment, if you don't need it delete it*/
 header {
   position:relative;
+  border: 5px solid green;
 }
 
 /*every CSS block needs a comment, if you don't need it delete it*/
 header h1 { 
   position:relative;
+  background-color: blue;
 }
+
 
 /*every CSS block needs a comment, if you don't need it delete it*/
-header h2 { 
-  position:relative;
-}
-
 /*surrounds .explanation .participation .benefits .requirements footer*/
 div.main {
   position:relative;
+  border: 5px solid cyan;
+  background-color: darkblue;
+  opacity: 90%;
 }
 
 /*every CSS block needs a comment, if you don't need it delete it*/
@@ -95,6 +110,9 @@ div.main {
 /*suppary p would style every <p> inside of summary */
 header, .summary, .preamble, .explanation, .participation, .benefits, .requirements, footer{
   position:relative;
+  border: 5px solid darkorange;
+  margin: 25px;
+  background-color: darkgoldenrod;
 }
 
 /*every CSS block needs a comment, if you don't need it delete it*/
