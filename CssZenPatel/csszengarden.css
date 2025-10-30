@@ -11,10 +11,10 @@ Date of Project: 10/25/2025
 Start Mr. Reynolds' Directions:
 Make sure you list your color palette colors in the comment below.
 
-You do not have to comment the HTML, but every block of CSS on this page needs to commented even stuff that is already here that you don't use.  If you don't need it and don't want to comment it delete it. But if it is here is needs to be commented. 
+You do not have to comment the HTML, but every block of CSS on this page needs to commented even stuff that is already here that you don't use.  If you don't need it and don't want to comment it delete it. But if it is here is needs to be commented.
 
 Formatting, make sure all your CSS is uniformly indented
-throughout the entire style sheet. 
+throughout the entire style sheet.
 
 You need to set fonts and I will search for that, you need more than one image.
 
@@ -32,40 +32,39 @@ Make sure you incorporate C.R.A.P into your design.
 html {
   position:relative;
  }
- 
  /*every CSS block needs a comment, if you don't need it delete it*/
  body {
   position:relative;
-  border: 5px solid red;
   background-image: url('images/japan-fantasy-landscape_23-2151870141.png ');
  }
- 
- 
  /*every CSS block needs a comment, if you don't need it delete it*/
  /*will style all your a tags*/
  a:link {
-  color: #B7A5DF;
+ color: #e60073; /* darker pink links */
  }
- 
  /*every CSS block needs a comment, if you don't need it delete it*/
  /*will control what happens on a hover of a tags*/
+ 
  a:hover {
-  position:relative;
+ position:relative;
+ color: #cc0066;
+ text-decoration: underline;
  }
  
+ /* visited/active states */
+ a:visited { color: #b3005b; }
+ a:active { color: #99004d; }
  /*every CSS block needs a comment, if you don't need it delete it*/
  /*something like this control what to a tags only in the .sidebar*/
  .sidebar a:link {
   position:relative;
  }
- 
  /*every CSS block needs a comment, if you don't need it delete it*/
  /*this tag puts a dotted underline under text*/
  abbr {
   /*border-bottom: none;*/
   position:relative;
  }
- 
  /*every CSS block needs a comment, if you don't need it delete it*/
  /*surrounds entire site except exta divs*/
  .page-wrapper {
@@ -76,21 +75,17 @@ html {
   gap: 24px;
   align-items: start;
  }
- 
  /*every CSS block needs a comment, if you don't need it delete it*/
  /*surrounds header, .summary, .preamble*/
  section.intro {
   position:relative;
-  border: 5px solid darkorange;
-  background-color: darkgoldenrod;
+  /* remove strong border and heavy background so text areas read cleaner */
+  border: none;
+  background-color: transparent;
   padding: 12px;
   /* ensure intro sits in the left column of the grid */
   grid-column: 1;
  }
- 
- 
- 
- 
  /*every CSS block needs a comment, if you don't need it delete it*/
  header h1 {
   position:relative;
@@ -102,30 +97,28 @@ html {
   margin: 0.2em 0;
   border-radius: 4px;
  }
- 
  header {
-  /* darker blue page header background */
-  background-color: rgb(38, 109, 135);
+  /* header treatment: light translucent blue with dark rounded border to match paragraph blocks */
+  background-color: rgba(200,230,255,0.6);
+  border: 2px solid #0b3b5c;
+  border-radius: 8px;
   text-align: center; /* center header content */
   padding: 18px 10px;
   margin-bottom: 20px; /* separate header from summary/preamble */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
  }
- 
  /*every CSS block needs a comment, if you don't need it delete it*/
  /*surrounds .explanation .participation .benefits .requirements footer*/
  div.main {
   position:relative;
-  border: 5px solid cyan;
-  background-color: darkblue;
-  opacity: 90%;
+  /* remove visual border from main area and make background transparent */
+  border: none;
+  background-color: transparent;
+  opacity: 1;
   /* make main occupy the right column */
   grid-column: 2;
   padding: 16px;
  }
- 
- 
- 
  /*every CSS block needs a comment, if you don't need it delete it*/
  /*These are all your major sub-elements, you can give a whole group of classes commands by grouping them separated by , */
  /*You can get more specific by styling the <p> tags or the <h3> tags or a specific <p> tag with a command like*/
@@ -134,72 +127,94 @@ html {
   /* place the summary and preamble in the left column stacked vertically */
   position:relative;
   margin: 12px 0;
-  background-color: darkgoldenrod;
-  opacity: 0.5;
+  /* use a light-blue translucent background so text sits above the page image */
+  background-color: rgba(200,230,255,0.6);
   padding: 10px;
   grid-column: 1;
+  border: 2px solid #0b3b5c; /* dark blue rounded border */
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(11,59,92,0.08);
  }
  
- .explanation, .participation, .benefits, .requirements, footer {
-  /* these elements live in the right column */
+ .explanation, .participation, footer {
+  /* these elements live in the right column but use a subtle background too */
   position:relative;
   margin: 12px 0;
-  background-color: darkgoldenrod;
-  opacity: 0.9;
+  background-color: rgba(200,230,255,0.6);
   padding: 10px;
   grid-column: 2;
+  border: 2px solid #0b3b5c;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(11,59,92,0.08);
  }
  
+ /* Benefits and requirements are now part of the intro column (left) */
+ .benefits, .requirements {
+  position: relative;
+  margin: 12px 0;
+  /* light-blue translucent background so text sits above the page image */
+  background-color: rgba(200,230,255,0.6);
+  padding: 10px;
+  grid-column: 1;
+  border: 2px solid #0b3b5c; /* dark blue rounded border */
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(11,59,92,0.08);
+ }
  /*every CSS block needs a comment, if you don't need it delete it*/
  /*There are 6 extras at the very bottom of the page*/
  .extra1 {
   /*code below will place element at top of page*/
   /*
-  position:absolute;
+  background-color: rgba(37, 150, 190, 1);
   top:0px;
   width:image width;
   height:image height;
   */
   position:relative;
  }
- 
- /* Footer blocks: place the select/archives/resources block in the right column
-   and raise it to align with the bottom of the intro (summary + preamble). */
+ /* Footer blocks: place the select/archives/resources block under the intro (left column) */
  .sidebar {
-  /* place the aside in the right column of the grid and align to its end */
+  /* place the aside under the main column so it appears after 'So What is This About' and 'Participation' */
   grid-column: 2;
-  align-self: end;
   position: relative;
-  /* nudge up so the blocks align visually with the bottom of the left column */
-  margin-bottom: 40px;
+  /* pull it up more so the blocks sit right under the participation links paragraph */
+  margin-top: -180px; /* raised further to sit directly under Participation */
+  z-index: 50; /* keep it above surrounding content when pulled up */
  }
  
  .sidebar .wrapper {
-  /* center the three blocks horizontally and layout left-to-right */
+  /* single-row layout: Select | Archives | Resources in one row */
   display: flex;
+  flex-wrap: nowrap; /* force one row */
+  gap: 12px;
   justify-content: center;
-  gap: 18px;
-  align-items: flex-end;
+  align-items: stretch;
+  overflow-x: auto; /* allow horizontal scroll on narrow screens */
  }
  
  .design-selection, .design-archives, .zen-resources {
-  background-color: #6aa7d6; /* default light blue - individual overrides below */
-  color: #fff;
+  /* match the light-blue translucent paragraph design with dark rounded border */
+  flex: 0 0 auto;
+  color: #0b3b5c; /* dark-blue text to match the border */
   padding: 12px 14px;
-  border-radius: 6px;
+  border-radius: 8px;
   text-align: center;
-  min-width: 160px;
+  min-width: 140px;
+  background-color: rgba(200,230,255,0.6);
+  border: 2px solid #0b3b5c;
+  box-shadow: 0 6px 18px rgba(11,59,92,0.12);
  }
  
- .design-selection { background-color: #6aa7d6; }
- .design-archives { background-color: #4aa373; }
- .zen-resources { background-color: #d68a4a; }
- 
+ /* ensure links inside these blocks are pink */
+ .design-selection a,
+ .design-archives a,
+ .zen-resources a {
+  color: #e60073; /* match global darker pink */
+ }
  .design-selection h3, .design-archives h3, .zen-resources h3 {
   margin: 0 0 6px 0;
   color: #fff;
  }
- 
  /* small responsive tweak so the blocks don't overlap on narrow screens */
  @media (max-width: 900px) {
   .sidebar { margin-bottom: 12px; }
