@@ -4,22 +4,22 @@
 
 /* Not all elements are defined in this file, so you'll most likely want to refer to the index.html as well. */
 
-/************************************************** 
+/**************************************************
 Student Name: Aiden Patel
 Date of Project: 10/25/2025
 
 Start Mr. Reynolds' Directions:
 Make sure you list your color palette colors in the comment below.
 
-You do not have to comment the HTML, but every block of CSS on this page needs to commented even stuff that is already here that you don't use.  If you don't need it and don't want to comment it delete it. But if it is here is needs to be commented.  
+You do not have to comment the HTML, but every block of CSS on this page needs to commented even stuff that is already here that you don't use.  If you don't need it and don't want to comment it delete it. But if it is here is needs to be commented. 
 
 Formatting, make sure all your CSS is uniformly indented
-throughout the entire style sheet.  
+throughout the entire style sheet. 
 
 You need to set fonts and I will search for that, you need more than one image.
 
 You need some kind of special effect, JavaScript or CSS Animation.
-Make sure you incorporate C.R.A.P into your design. 
+Make sure you incorporate C.R.A.P into your design.
 ***************************************************/
 
 /*  My Primary color for my palette is: ??????????, my secondary colors are:  */
@@ -31,93 +31,128 @@ Make sure you incorporate C.R.A.P into your design.
 /*Delete this command from the blocks when you put your own commands in*/
 html {
   position:relative;
-}
-
-/*every CSS block needs a comment, if you don't need it delete it*/
-body { 
+ }
+ 
+ /*every CSS block needs a comment, if you don't need it delete it*/
+ body {
   position:relative;
   border: 5px solid red;
   background-image: url('images/japan-fantasy-landscape_23-2151870141.png ');
-}
-
-
-/*every CSS block needs a comment, if you don't need it delete it*/
-/*will style all your a tags*/
-a:link { 
-	color: #B7A5DF;
-}
-
-/*every CSS block needs a comment, if you don't need it delete it*/
-/*will control what happens on a hover of a tags*/
-a:hover { 
+ }
+ 
+ 
+ /*every CSS block needs a comment, if you don't need it delete it*/
+ /*will style all your a tags*/
+ a:link {
+  color: #B7A5DF;
+ }
+ 
+ /*every CSS block needs a comment, if you don't need it delete it*/
+ /*will control what happens on a hover of a tags*/
+ a:hover {
   position:relative;
-}
-
-/*every CSS block needs a comment, if you don't need it delete it*/
-/*something like this control what to a tags only in the .sidebar*/
-.sidebar a:link { 
+ }
+ 
+ /*every CSS block needs a comment, if you don't need it delete it*/
+ /*something like this control what to a tags only in the .sidebar*/
+ .sidebar a:link {
   position:relative;
-}
-
-/*every CSS block needs a comment, if you don't need it delete it*/
-/*this tag puts a dotted underline under text*/
-abbr {
-	/*border-bottom: none;*/
+ }
+ 
+ /*every CSS block needs a comment, if you don't need it delete it*/
+ /*this tag puts a dotted underline under text*/
+ abbr {
+  /*border-bottom: none;*/
   position:relative;
-}
-
-/*every CSS block needs a comment, if you don't need it delete it*/
-/*surrounds entire site except exta divs*/
-.page-wrapper { 
+ }
+ 
+ /*every CSS block needs a comment, if you don't need it delete it*/
+ /*surrounds entire site except exta divs*/
+ .page-wrapper {
   position:relative;
-}
-
-/*every CSS block needs a comment, if you don't need it delete it*/
-/*surrounds header, .summary, .preamble*/
-section.intro { 
+  /* two-column layout: left = intro (summary + preamble), right = main content */
+  display: grid;
+  grid-template-columns: 35% 1fr;
+  gap: 24px;
+  align-items: start;
+ }
+ 
+ /*every CSS block needs a comment, if you don't need it delete it*/
+ /*surrounds header, .summary, .preamble*/
+ section.intro {
   position:relative;
   border: 5px solid darkorange;
   background-color: darkgoldenrod;
-  width: 500px;
-}
-
-
-/*every CSS block needs a comment, if you don't need it delete it*/
-header {
+  padding: 12px;
+  /* ensure intro sits in the left column of the grid */
+  grid-column: 1;
+ }
+ 
+ 
+ 
+ 
+ /*every CSS block needs a comment, if you don't need it delete it*/
+ header h1 {
   position:relative;
-  border: 5px solid green;
-}
-
-/*every CSS block needs a comment, if you don't need it delete it*/
-header h1 { 
-  position:relative;
-  background-color: blue;
-}
-
-
-/*every CSS block needs a comment, if you don't need it delete it*/
-/*surrounds .explanation .participation .benefits .requirements footer*/
-div.main {
+  /* lighter blue background behind the header text */
+  background-color: rgba(37, 150, 190, 1);
+  display: inline-block;
+  color: #ffffff;
+  padding: 8px 14px;
+  margin: 0.2em 0;
+  border-radius: 4px;
+ }
+ 
+ header {
+  /* darker blue page header background */
+  background-color: rgb(38, 109, 135);
+  text-align: center; /* center header content */
+  padding: 18px 10px;
+  margin-bottom: 20px; /* separate header from summary/preamble */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+ }
+ 
+ /*every CSS block needs a comment, if you don't need it delete it*/
+ /*surrounds .explanation .participation .benefits .requirements footer*/
+ div.main {
   position:relative;
   border: 5px solid cyan;
   background-color: darkblue;
   opacity: 90%;
-}
-
-/*every CSS block needs a comment, if you don't need it delete it*/
-/*These are all your major sub-elements, you can give a whole group of classes commands by grouping them separated by , */
-/*You can get more specific by styling the <p> tags or the <h3> tags or a specific <p> tag with a command like*/
-/*suppary p would style every <p> inside of summary */
-header, .summary, .preamble, .explanation, .participation, .benefits, .requirements, footer{
+  /* make main occupy the right column */
+  grid-column: 2;
+  padding: 16px;
+ }
+ 
+ 
+ 
+ /*every CSS block needs a comment, if you don't need it delete it*/
+ /*These are all your major sub-elements, you can give a whole group of classes commands by grouping them separated by , */
+ /*You can get more specific by styling the <p> tags or the <h3> tags or a specific <p> tag with a command like*/
+ /*suppary p would style every <p> inside of summary */
+ .summary, .preamble {
+  /* place the summary and preamble in the left column stacked vertically */
   position:relative;
-  border: 5px solid darkorange;
-  margin: 25px;
+  margin: 12px 0;
   background-color: darkgoldenrod;
-}
-
-/*every CSS block needs a comment, if you don't need it delete it*/
-/*There are 6 extras at the very bottom of the page*/
-.extra1 {
+  opacity: 0.5;
+  padding: 10px;
+  grid-column: 1;
+ }
+ 
+ .explanation, .participation, .benefits, .requirements, footer {
+  /* these elements live in the right column */
+  position:relative;
+  margin: 12px 0;
+  background-color: darkgoldenrod;
+  opacity: 0.9;
+  padding: 10px;
+  grid-column: 2;
+ }
+ 
+ /*every CSS block needs a comment, if you don't need it delete it*/
+ /*There are 6 extras at the very bottom of the page*/
+ .extra1 {
   /*code below will place element at top of page*/
   /*
   position:absolute;
@@ -126,4 +161,48 @@ header, .summary, .preamble, .explanation, .participation, .benefits, .requireme
   height:image height;
   */
   position:relative;
-}
+ }
+ 
+ /* Footer blocks: place the select/archives/resources block in the right column
+   and raise it to align with the bottom of the intro (summary + preamble). */
+ .sidebar {
+  /* place the aside in the right column of the grid and align to its end */
+  grid-column: 2;
+  align-self: end;
+  position: relative;
+  /* nudge up so the blocks align visually with the bottom of the left column */
+  margin-bottom: 40px;
+ }
+ 
+ .sidebar .wrapper {
+  /* center the three blocks horizontally and layout left-to-right */
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  align-items: flex-end;
+ }
+ 
+ .design-selection, .design-archives, .zen-resources {
+  background-color: #6aa7d6; /* default light blue - individual overrides below */
+  color: #fff;
+  padding: 12px 14px;
+  border-radius: 6px;
+  text-align: center;
+  min-width: 160px;
+ }
+ 
+ .design-selection { background-color: #6aa7d6; }
+ .design-archives { background-color: #4aa373; }
+ .zen-resources { background-color: #d68a4a; }
+ 
+ .design-selection h3, .design-archives h3, .zen-resources h3 {
+  margin: 0 0 6px 0;
+  color: #fff;
+ }
+ 
+ /* small responsive tweak so the blocks don't overlap on narrow screens */
+ @media (max-width: 900px) {
+  .sidebar { margin-bottom: 12px; }
+  .sidebar .wrapper { flex-direction: column; gap: 10px; }
+  .design-selection, .design-archives, .zen-resources { width: 90%; min-width: auto; }
+ }
