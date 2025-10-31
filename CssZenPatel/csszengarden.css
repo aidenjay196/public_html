@@ -22,7 +22,7 @@ You need some kind of special effect, JavaScript or CSS Animation.
 Make sure you incorporate C.R.A.P into your design.
 ***************************************************/
 
-/*  My Primary color for my palette is: ??????????, my secondary colors are:  */
+/*  My Primary color for my palette is: Light Blueish my secondary colors are: Pink URL Links */
 
 /*every CSS block needs a comment, if you don't need it delete it*/
 /*all HTML tags are by default position: relative*/
@@ -40,7 +40,7 @@ html {
  /*every CSS block needs a comment, if you don't need it delete it*/
  /*will style all your a tags*/
  a:link {
- color: #e60073; /* darker pink links */
+ color: #e60073; /*  pink url links */
  }
  /*every CSS block needs a comment, if you don't need it delete it*/
  /*will control what happens on a hover of a tags*/
@@ -87,22 +87,22 @@ html {
   grid-column: 1;
  }
  /*every CSS block needs a comment, if you don't need it delete it*/
- header h1 {
+ header h1, header h2 {
   position:relative;
   /* lighter blue background behind the header text */
-  background-color: rgba(37, 150, 190, 1);
+  background-color: rgba(70, 127, 174, 0.6);
   display: inline-block;
-  color: #ffffff;
+  color: black;
   padding: 8px 14px;
   margin: 0.2em 0;
   border-radius: 4px;
  }
  header {
-  /* header treatment: light translucent blue with dark rounded border to match paragraph blocks */
+  /* Light blue matches the dark blue header highlight */
   background-color: rgba(200,230,255,0.6);
   border: 2px solid #0b3b5c;
   border-radius: 8px;
-  text-align: center; /* center header content */
+  text-align: center; /* center header  */
   padding: 18px 10px;
   margin-bottom: 20px; /* separate header from summary/preamble */
   box-shadow: 0 2px 6px rgba(0,0,0,0.12);
@@ -137,7 +137,7 @@ html {
  }
  
  .explanation, .participation, footer {
-  /* these elements live in the right column but use a subtle background too */
+  /* setting margin, light blue background with dark blue border*/
   position:relative;
   margin: 12px 0;
   background-color: rgba(200,230,255,0.6);
@@ -148,11 +148,11 @@ html {
   box-shadow: 0 6px 18px rgba(11,59,92,0.08);
  }
  
- /* Benefits and requirements are now part of the intro column (left) */
+ /* benefits and requirements under participation and explanation */
  .benefits, .requirements {
   position: relative;
   margin: 12px 0;
-  /* light-blue translucent background so text sits above the page image */
+  /* light-blue translucent background so text doesnt blend in */
   background-color: rgba(200,230,255,0.6);
   padding: 10px;
   grid-column: 1;
@@ -172,30 +172,31 @@ html {
   */
   position:relative;
  }
- /* Footer blocks: place the select/archives/resources block under the intro (left column) */
+/* footer blocks under intro blocks */
  .sidebar {
-  /* place the aside under the main column so it appears after 'So What is This About' and 'Participation' */
-  grid-column: 2;
+  /* place the aside under the intro column so it appears after 'the road to enlightenment' and 'participation' */
+  grid-column: 1;
   position: relative;
-  /* pull it up more so the blocks sit right under the participation links paragraph */
-  margin-top: -180px; /* raised further to sit directly under Participation */
-  z-index: 50; /* keep it above surrounding content when pulled up */
+  margin-top: -630px; /* moved up  so the blocks sit closer to the intro */
  }
- 
+
  .sidebar .wrapper {
-  /* single-row layout: Select | Archives | Resources in one row */
-  display: flex;
-  flex-wrap: nowrap; /* force one row */
+  /* layout: two columns on wider screens (select + archives), resources on its own row below */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 12px;
-  justify-content: center;
-  align-items: stretch;
-  overflow-x: auto; /* allow horizontal scroll on narrow screens */
+  justify-items: stretch;
+  align-items: stretch; 
  }
+
+ .zen-resources { 
+  margin-top: 36px; /* made space between top blocks and this one */
+}
+
  
  .design-selection, .design-archives, .zen-resources {
-  /* match the light-blue translucent paragraph design with dark rounded border */
-  flex: 0 0 auto;
-  color: #0b3b5c; /* dark-blue text to match the border */
+  /* grid items: allow natural sizing, keep visual treatment */
+  color: #0b3b5c; /* dark-blue text */
   padding: 12px 14px;
   border-radius: 8px;
   text-align: center;
@@ -203,21 +204,64 @@ html {
   background-color: rgba(200,230,255,0.6);
   border: 2px solid #0b3b5c;
   box-shadow: 0 6px 18px rgba(11,59,92,0.12);
+}
+
+ /* ensure the left-row boxes fill the grid row and match height */
+ .design-selection, .design-archives {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+ }
+
+ .zen-resources {
+  grid-column: 1 / -1; /* span full width under the first row */
  }
  
- /* ensure links inside these blocks are pink */
- .design-selection a,
- .design-archives a,
- .zen-resources a {
-  color: #e60073; /* match global darker pink */
- }
  .design-selection h3, .design-archives h3, .zen-resources h3 {
   margin: 0 0 6px 0;
   color: #fff;
  }
- /* small responsive tweak so the blocks don't overlap on narrow screens */
- @media (max-width: 900px) {
-  .sidebar { margin-bottom: 12px; }
-  .sidebar .wrapper { flex-direction: column; gap: 10px; }
-  .design-selection, .design-archives, .zen-resources { width: 90%; min-width: auto; }
- }
+
+ /* animation parts  */
+
+
+ /* animations: slide left-side in from the left, then slide right-side in from the right */
+/* left animation duration (ms) */
+:root { --left-dur: 700ms; }
+
+@keyframes slide-in-left {
+  from { transform: translateX(-40px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(40px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+/* apply initial state and animation to left column elements */
+section.intro,
+.summary,
+.preamble,
+.benefits,
+.requirements,
+.sidebar {
+  /* left-side slides in from left */
+  opacity: 0;
+  transform: translateX(-40px);
+  animation: slide-in-left var(--left-dur) ease-out forwards;
+  will-change: transform, opacity;
+}
+
+/* apply animation to right column elements with delay so it starts after left finishes */
+div.main,
+.explanation,
+.participation,
+footer {
+  /* right-side slides in from right after left animation ends */
+  opacity: 0;
+  transform: translateX(40px);
+  animation: slide-in-right var(--left-dur) ease-out forwards;
+  animation-delay: var(--left-dur);
+  will-change: transform, opacity;
+}
