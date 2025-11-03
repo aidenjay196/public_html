@@ -35,7 +35,13 @@ html {
  /*every CSS block needs a comment, if you don't need it delete it*/
  body {
   position:relative;
-  background-image: url('images/japan-fantasy-landscape_23-2151870141.png ');
+  /* background fills the screen and doesn't repeat */
+  min-height: 100vh;
+  background-image: url('images/japan-fantasy-landscape_23-2151870141-Picsart-AiImageEnhancer.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  background-attachment: scroll;
  }
  /*every CSS block needs a comment, if you don't need it delete it*/
  /*will style all your a tags*/
@@ -71,8 +77,14 @@ html {
   position:relative;
   /* two-column layout: left = intro (summary + preamble), right = main content */
   display: grid;
-  grid-template-columns: 35% 1fr;
-  gap: 24px;
+  /* make left column flexible but with a sensible minimum so spacing stays consistent */
+  grid-template-columns: minmax(220px, 35%) 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "intro main"
+    "sidebar main";
+  /* smaller row gap so stacked left-column items sit closer together while keeping column gap wider */
+  gap: 12px 24px; /* row-gap column-gap */
   align-items: start;
  }
  /*every CSS block needs a comment, if you don't need it delete it*/
@@ -84,7 +96,7 @@ html {
   background-color: transparent;
   padding: 12px;
   /* ensure intro sits in the left column of the grid */
-  grid-column: 1;
+  grid-area: intro;
  }
  /*every CSS block needs a comment, if you don't need it delete it*/
  header h1, header h2 {
@@ -116,7 +128,7 @@ html {
   background-color: transparent;
   opacity: 1;
   /* make main occupy the right column */
-  grid-column: 2;
+  grid-area: main;
   padding: 16px;
  }
  /*every CSS block needs a comment, if you don't need it delete it*/
@@ -126,7 +138,8 @@ html {
  .summary, .preamble {
   /* place the summary and preamble in the left column stacked vertically */
   position:relative;
-  margin: 12px 0;
+  /* reduce vertical margin so sidebar can sit closer beneath these blocks */
+  margin: 6px 0;
   /* use a light-blue translucent background so text sits above the page image */
   background-color: rgba(200,230,255,0.6);
   padding: 10px;
@@ -175,22 +188,26 @@ html {
 /* footer blocks under intro blocks */
  .sidebar {
   /* place the aside under the intro column so it appears after 'the road to enlightenment' and 'participation' */
-  grid-column: 1;
+  grid-area: sidebar;
   position: relative;
-  margin-top: -630px; /* moved up  so the blocks sit closer to the intro */
+  z-index: 1;
+  align-self: start;
+  margin-top: 0;
  }
 
  .sidebar .wrapper {
   /* layout: two columns on wider screens (select + archives), resources on its own row below */
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  /* increase gap so the resources box doesn't overlap the top two boxes */
+  gap: 30px;
   justify-items: stretch;
-  align-items: stretch; 
+  align-items: stretch;
+  margin-top: 0;
  }
 
  .zen-resources { 
-  margin-top: 36px; /* made space between top blocks and this one */
+  margin-top: 12px; /* made space between top blocks and this one */
 }
 
  
