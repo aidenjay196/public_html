@@ -213,7 +213,7 @@ html {
  
  .design-selection, .design-archives, .zen-resources {
   /* grid items: allow natural sizing, keep visual treatment */
-  color: #0b3b5c; /* dark-blue text */
+  color: #000; /* black text for readability */
   padding: 12px 14px;
   border-radius: 8px;
   text-align: center;
@@ -234,9 +234,9 @@ html {
   grid-column: 1 / -1; /* span full width under the first row */
  }
  
- .design-selection h3, .design-archives h3, .zen-resources h3 {
+.design-selection h3, .design-archives h3, .zen-resources h3 {
   margin: 0 0 6px 0;
-  color: #fff;
+  color: #000; /* headings use black */
  }
 
  /* animation parts  */
