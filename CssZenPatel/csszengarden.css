@@ -92,8 +92,8 @@ html {
  section.intro {
   position:relative;
   /* remove strong border and heavy background so text areas read cleaner */
-  border: none;
-  background-color: transparent;
+  border-radius: 10px; /* Adjust the value for desired roundness */
+  background-color: rgba(200,230,255,0.6);
   padding: 12px;
   /* ensure intro sits in the left column of the grid */
   grid-area: intro;
@@ -124,9 +124,8 @@ html {
  div.main {
   position:relative;
   /* remove visual border from main area and make background transparent */
-  border: none;
-  background-color: transparent;
-  opacity: 1;
+  border-radius: 10px; /* Adjust the value for desired roundness */
+  background-color: rgba(200,230,255,0.6);
   /* make main occupy the right column */
   grid-area: main;
   padding: 16px;
@@ -152,6 +151,7 @@ html {
  .explanation, .participation, footer {
   /* setting margin, light blue background with dark blue border*/
   position:relative;
+  border-radius: 10px; /* Adjust the value for desired roundness */
   margin: 12px 0;
   background-color: rgba(200,230,255,0.6);
   padding: 10px;
@@ -193,7 +193,9 @@ html {
   z-index: 1;
   align-self: start;
   margin-top: 0;
- }
+  background-color: rgba(200,230,255,0.6);
+  border-radius: 10px; /* Adjust the value for desired roundness */
+}
 
  .sidebar .wrapper {
   /* layout: two columns on wider screens (select + archives), resources on its own row below */
