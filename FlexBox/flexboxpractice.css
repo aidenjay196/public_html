@@ -1,0 +1,128 @@
+html, body {
+    margin: 0;
+}
+
+.container {
+    /* remove background and border so only boxes show color */
+    border: none;
+    background-color: transparent;
+    width: auto;
+    height: 100%;
+}
+
+.outer {
+    /* remove outer border color */
+    border: none;
+}
+
+.simpleBox {
+    width: 20%;
+    height: 50px;
+    border: 5px solid red; /* only visible color on page */
+    color: inherit; /* keep default text color */
+}
+
+.second {
+    display: flex;
+    justify-content: center;
+}
+
+.third {
+    display: flex;
+    margin: 10px;
+}
+
+.fourth {
+    display: flex;
+}
+
+#divOne.third {
+    display: flex;
+    justify-content: space-around;
+}
+#divTwo.third {
+    display: flex;
+    justify-content: space-between;
+}
+#divThree.third {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#divFour.fourth {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#divFive.fifth {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#divSix.sixth {
+    display: flex;
+    align-items: flex-start;
+}
+
+
+/* center all header elements on the page */
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+}
+
+
+
+#main {
+  width: 220px;
+  height: 300px;
+  border: 1px solid black; 
+  display: flex;
+  align-items: flex-start;
+  text-align: center;
+  margin: 20px auto;
+}
+
+#main div {
+  flex: 1;
+  border: 1px solid black;
+  display: flex;
+  align-items: flex-start;
+  text-align: center;
+}
+
+#main1 {
+  width: 220px;
+  height: 300px;
+  border: 1px solid black; 
+  display: flex;
+  align-items: flex-end;
+  text-align: center;
+  margin: 20px auto;
+}
+
+#main1 div {
+  flex: 1;
+  border: 1px solid black;
+  display: flex;
+  align-items: flex-end;
+  text-align: center;
+}
+
+#main2 {
+  width: 220px;
+  height: 300px;
+  border: 1px solid black; 
+  display: flex;
+  align-items: stretch;
+  text-align: center;
+  margin: 20px auto;
+}
+
+#main2 div {
+  flex: 1;
+  border: 1px solid black;
+  display: flex;
+  align-items: stretch;
+  text-align: center;
+}
+
