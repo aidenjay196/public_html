@@ -1,0 +1,84 @@
+html, body {
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    font-size: 41px;
+}
+
+
+.container {
+    border: none;
+    background-color: transparent;
+    width: auto;
+    height: 100%;
+}
+
+.topleft-box {
+    border: 2px solid black; 
+    width: 667px; 
+    padding: 10px; 
+    float: left; 
+    margin-right: 20px; 
+    height: 1000px;
+}
+
+.topleft-box {
+    display: flex;
+    justify-content: center;    
+    align-items: center; 
+    height: 73vh; 
+    gap: 200px; 
+}
+  
+  /* Left column */
+.topbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center boxes horizontally within the column */
+}
+  
+  /* Left boxes */
+  .toplist {
+    border: 5px solid black;
+    height: 100px;
+    width: 100px;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 40px;
+}
+  
+  /* Right column */
+  .topright-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+  /* Right boxes */
+  .topliright {
+    border: 5px solid black;
+    height: 100px;
+    width: 100px;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 40px;
+}
+  
+
+.bottomleft-box {
+    position: absolute; /* Positions the div relative to its closest positioned ancestor (parent-container) */
+    bottom: 0; /* Aligns the div to the bottom edge of the parent */
+    left: 0; /* Aligns the div to the left edge of the parent */
+    padding: 10px;
+    border: 2px solid black;
+    width: 667px; 
+    height: 100px; 
+}

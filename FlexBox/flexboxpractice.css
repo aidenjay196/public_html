@@ -10,10 +10,6 @@ html, body {
     height: 100%;
 }
 
-.outer {
-    /* remove outer border color */
-    border: none;
-}
 
 .simpleBox {
     width: 20%;
