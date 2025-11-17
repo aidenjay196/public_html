@@ -1,0 +1,19 @@
+.header{
+    padding:0px;
+}
+
+.bg-sidenav{
+    background-color: #3F6B90;
+}
+
+.nav-link{
+    color:#D9E4EE;
+}
+
+.nav-link:hover {
+    color: #CCCCCC;
+}
+
+main{
+    background-color: #FDFFFE;
+}
