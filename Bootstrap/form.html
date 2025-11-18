@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script src="script.js"></script>
+    <title>Bootstrap Practice</title>
+</head>
+
+<body>
+    <div class="container-fluid" id="top">
+        <div class="row">
+            <a href="home.html" class="col-md-12 header">
+                <header class="col-md-12 header">
+                    <img src="images/headertemplate2.png" class="img-fluid d-block" style="width:100%;height:500px" alt="" />
+                </header>
+            </a>
+        </div> <!-- end header row-->
+
+        <div class="row">
+            <nav class="navbar navbar-expand-md bg-dark navbar-dark col-md-12">
+
+                <!--  Navbar Links  -->
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item" href="#">
+                            <a class="nav-link" href="home.html">Home</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item" href="#">
+                            <a class="nav-link" href="threepage.html">Three Page</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item" href="#">
+                            <a class="nav-link" href="form.html">Form</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item" href="#">
+                            <a class="nav-link" href="psuedo.html">Psuedo</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item" href="#">
+                            <a class="nav-link" href="animation.html">Animation</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item" href="#">
+                            <a class="nav-link" href="zengarden.html">Zen Garden</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div> <!--  end of nav row -->
+
+        <div class="row">  <!--  sidebar row  -->
+            <sidebar class="col-md-3 bg-sidenav">
+                <div class="text-center">
+                    
+                    <a data-bs-toggle="collapse" href="#collapseText" aria-expanded="false" aria-controls="collapseText">
+                        <img src="images/isrealgpt.png" width="250" alt="" class="mx-auto d-block"/>
+                    </a>
+                
+                    
+                    <div class="collapse" id="collapseText">
+                        <div class="card card-body mt-2">
+                            isrealgpt fix my code cause i dont know how to code
+                        </div>
+                    </div>
+                </div>
+            </sidebar>
+            <main class="col-md-9">
+                <h3>My Forms</h3>
+            
+                <div align="center">
+                    <!-- New button to toggle the form visibility -->
+                    <button id="toggleButton" onclick="toggleForm()">Show Form</button>
+                
+                    <!-- New container for the form, initially hidden -->
+                    <div id="formContainer" style="display: none;">
+                        <form id="contactForm" onsubmit="return validateForm()"> 
+                            <!-- form start-->
+                            <fieldset style="width: 400px; text-align: left;">
+                                <legend>Contact me:</legend>
+                                First Name: <input type="text" id="fname" name="fname"><br><br>
+                                Last Name: <input type="text" id="lname" name="lname"><br><br>
+                                Password: <input type="password" id="password" name="password"><br><br>
+                                Email: <input type="email" id="email" name="email"><br><br>
+                                Select your favorite mythical creature:<select id="creature" name="creature"><option value="">--Select--</option><option value="ramacheeks">ramacheeks</option><option value="ben and jerry ice cream">ben and jerry ice cream</option><option value="ryan ritz cracker">ryan ritz cracker</option><option value="steven">steven</option></select><br><br>
+                                <label for="transport">Type of Transportation:</label><select id="transport" name="transport"><option value="">--Select--</option><option value="car">Car</option><option value="bike">Bike</option><option value="bus">Bus</option><option value="walk">Walk</option><option value="other">Other</option></select><br><br>
+                                <input type="radio" name="role" value="freshman"> Freshman<br>
+                                <input type="radio" name="role" value="sophomore"> Sophomore<br>
+                                <input type="radio" name="role" value="junior"> Junior<br>
+                                <input type="radio" name="role" value="senior"> Senior<br>
+                                <input type="radio" name="role" value="teacher"> Teacher<br>
+                                <input type="radio" name="role" value="other"> Other<br><br>
+                                <textarea name="comment" id="comment" rows="5" cols="45">Please leave a comment</textarea><br><br>
+                                <input type="reset" value="Reset">
+                                <button type="submit" onclick="myFunction()">Submit</button>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <p id="demo" style="text-align: center;"></p>
+                <script>
+                    // New function to toggle form visibility
+                    function toggleForm() {
+                        var formContainer = document.getElementById("formContainer");
+                        var toggleButton = document.getElementById("toggleButton");
+                
+                        if (formContainer.style.display === "none") {
+                            formContainer.style.display = ""; // Show the form
+                            toggleButton.textContent = "Hide Form"; // Change button text
+                        } else {
+                            formContainer.style.display = "none"; // Hide the form
+                            toggleButton.textContent = "Show Form"; // Change button text
+                        }
+                    }
+                
+                    // Existing functions below (myFunction and validateForm)
+                    function myFunction() {
+                        var thesound, text;
+                        thesound = document.getElementById("creature").value;
+                        if(thesound == "ramacheeks") {
+                            text = "<img src=images/mason.webp>";
+                        } else if (thesound == "ben and jerry ice cream") {
+                            text = "<img src=images/benjerry.png>";
+                        } else if (thesound == "ryan ritz cracker") {
+                            text = "<img src=images/ritzsidebar.png>";
+                        } else if (thesound == "steven") {
+                            text = "<img src=images/steven.jpeg>";
+                        }
+                        document.getElementById("demo").innerHTML = text;
+                    }
+                
+                    function validateForm() {
+                        var fname = document.getElementById('fname').value.trim();
+                        var lname = document.getElementById('lname').value.trim();
+                        var password = document.getElementById('password').value.trim();
+                        var email = document.getElementById('email').value.trim();
+                        var creature = document.getElementById('creature').value;
+                        var transport = document.getElementById('transport').value;
+                        var comment = document.getElementById('comment').value.trim();
+                        // Check radio buttons
+                        var roles = document.getElementsByName('role');
+                        var roleSelected = false;
+                        var roleValue = "";
+                        for (var i = 0; i < roles.length; i++) {
+                            if (roles[i].checked) {
+                                roleSelected = true;
+                                roleValue = roles[i].value;
+                                break;
+                            }
+                        }
+                        if (!fname || !lname || !password || !email || !creature || !transport || !roleSelected || !comment) {
+                            alert('Please fill in all fields.');
+                            return false;
+                        }
+                        alert("First Name: " + fname + "\n" +
+                              "Last Name: " + lname + "\n" +
+                              "Password: " + password + "\n" +
+                              "Email: " + email + "\n" +
+                              "Mythical Creature: " + creature + "\n" +
+                              "Transportation: " + transport + "\n" +
+                              "Role: " + roleValue + "\n" +
+                              "Comment: " + comment);
+                        return false; // prevent actual form submission
+                    }
+                </script>
+                
+            
+            
+        
+            
+            </main>
+        </div> <!--  end sidebar row  -->
+
+        <div class="row bg-dark text-white">
+            <footer class="col-md-4 text-start">&copy; Programming 2</footer>
+            <footer class="col-md-4 text-center">
+                25 Anderdingus Dr<br>
+                Dover, NH 03820
+            </footer>
+            <footer class="col-md-4 text-right">
+                Developed by <a href="mailto:aidenpace1496@gmail.com" target="_blank">Aiden Patel</a>
+            </footer>
+        </div> <!--  close footer row -->
+    </div>     <!-- end container fluid  -->
+</body>
+</html>
