@@ -110,21 +110,19 @@
                 </div>
                 <p id="demo" style="text-align: center;"></p>
                 <script>
-                    // New function to toggle form visibility
+
                     function toggleForm() {
                         var formContainer = document.getElementById("formContainer");
                         var toggleButton = document.getElementById("toggleButton");
                 
                         if (formContainer.style.display === "none") {
-                            formContainer.style.display = ""; // Show the form
-                            toggleButton.textContent = "Hide Form"; // Change button text
+                            formContainer.style.display = ""; 
+                            toggleButton.textContent = "Hide Form"; 
                         } else {
-                            formContainer.style.display = "none"; // Hide the form
-                            toggleButton.textContent = "Show Form"; // Change button text
+                            formContainer.style.display = "none"; 
+                            toggleButton.textContent = "Show Form"; 
                         }
                     }
-                
-                    // Existing functions below (myFunction and validateForm)
                     function myFunction() {
                         var thesound, text;
                         thesound = document.getElementById("creature").value;
@@ -173,12 +171,55 @@
                               "Comment: " + comment);
                         return false; // prevent actual form submission
                     }
-                </script>
                 
-            
-            
-        
-            
+                </script>
+                    <audio id="audiotag1" src="../BasicForm/sounds/bear.wav" preload="auto"></audio>
+                    <audio id="audiotag2" src="../BasicForm/sounds/bird.wav" preload="auto"></audio>
+                    <audio id="audiotag3" src="../BasicForm/sounds/bison.wav" preload="auto"></audio>
+                    <audio id="audiotag4" src="../BasicForm/sounds/cat.wav" preload="auto"></audio>
+                    <audio id="audiotag5" src="../BasicForm/sounds/goat.wav" preload="auto"></audio>
+                
+                    <p> Choose an Animal:</p>
+                
+                    <select id="animalsounds">
+                        <option value="bird">Bird</option>
+                        <option value="bison">Bison</option>
+                        <option value="cat">Cat</option>
+                        <option value="bear">Bear</option>
+                        <option value="goat">Goat</option>
+                    </select>
+                
+                    <button type="button" onclick="myFunction()">Submit</button>
+                
+                    <!-- outputs animal image-->
+                    <p id="demo"></p>
+                
+                    <script> 
+                
+                    function myFunction() {
+                        var thesound, text;
+                
+                        thesound = document.getElementById("animalsounds").value;
+                
+                        if(thesound == "bear") {
+                            text = "<img src=images/bear.jpg>";
+                            document.getElementById('audiotag1').play();
+                        } else if (thesound == "bird") {
+                            text = "<img src=images/bird.jpg>";
+                            document.getElementById('audiotag2').play();
+                        } else if (thesound == "bison") {
+                            text = "<img src=images/bison.jpg>";
+                            document.getElementById('audiotag3').play();
+                        } else if (thesound == "cat") {
+                            text = "<img src=images/cat.jpg>";
+                            document.getElementById('audiotag4').play();
+                        } else if (thesound == "goat") {
+                            text = "<img src=images/goat.jpg>";
+                            document.getElementById('audiotag5').play();
+                        }
+                        document.getElementById("demo").innerHTML = text;
+                    }
+                </script>
             </main>
         </div> <!--  end sidebar row  -->
 
