@@ -19,3 +19,74 @@ main{
 }
 
 
+.custom-div {
+    height: 250px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px; 
+    text-align: center; 
+}
+
+
+
+
+
+.image-box {
+    padding: 20px;
+    border: 2px solid #ccc;
+    text-align: center;
+    position: relative; 
+}
+
+
+.image-box::before {
+    content: url('images/leaves.png'); 
+    display: inline-block; 
+    margin-right: 10px; 
+    vertical-align: middle; 
+
+}
+
+
+.image-box::after {
+    content: url('images/leaves.png'); 
+    display: inline-block; 
+    margin-left: 10px;
+    vertical-align: middle; 
+}
+
+
+    @keyframes spinX {
+    0% { transform: rotateX(0deg); }
+    100% { transform: rotateX(360deg); }
+  }
+
+    @keyframes spinY {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+  }
+
+    @keyframes spinZ {
+    0% { transform: rotateZ(0deg); }
+    100% { transform: rotateZ(360deg); }
+  }
+
+  .rotate-x-axis {
+    animation: spinX 2s infinite linear;
+    transform-style: preserve-3d;
+    perspective: 500px;
+  }
+
+  .rotate-y-axis {
+    animation: spinY 2s infinite linear;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    padding-top: 100px;    
+  }   
+  
+  .rotate-z-axis {
+    animation: spinZ 2s infinite linear;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    
+  }
