@@ -31,3 +31,12 @@ function changeStyle(styleName) {
 }
 
 showTime();
+
+
+function myFunction() {
+    const element = document.getElementById("myDIV");
+    element.classList.remove("mystyle");  // Remove mystyle class
+    element.classList.add("newone");  // Add newone class
+ }
+
+functi

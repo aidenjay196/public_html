@@ -5,14 +5,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="mycss.css" type="text/css">
-  <script src="index.js"></script>
-
 </head>
   
   <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
   <script  src="./script.js"></script>
   
-  
+  <!-- buttons to change style-->
   <button onclick="changeStyle('style1')">Style 1</button>
   <button onclick="changeStyle('style2')">Style 2</button>
   <button onclick="changeStyle('style3')">Style 3</button>
@@ -34,54 +32,56 @@
       <a href="Bootstrap/"> Bootstrap</a>
     </h1>   
   </nav>
+  <p> Changing HTML with Javascript</p> <a href="https://www.w3schools.com/howto/howto_js_change_class.asp"> From W3 Schools</a>
+  <button onclick="myFunction()">Try it</button>
 
-<p>
-  The "barbershop haircut" meme, also known as "a barbershop haircut that costs a quarter," is a popular example of a "brainrot" meme, similar in style and chaotic energy to the "Adrian explain our friend group" meme. It's a short, highly specific, and absurd piece of content that has been edited and remixed into a variety of different formats.
+  <div id="myDIV" class="mystyle"> 
+    
 
-  The Origin of the Meme
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor, mauris non tempus fermentum, lectus tellus sollicitudin enim, nec condimentum dui tortor non sapien. Duis tellus felis, mattis quis lacus sollicitudin, bibendum finibus felis. Praesent in consectetur lectus. In in aliquet elit. Pellentesque tincidunt erat sed ultricies posuere. Etiam euismod, erat non cursus rhoncus, massa mi tincidunt odio, sit amet tempor velit sem nec metus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas porta enim quis dolor convallis, eu maximus lorem facilisis. Nulla auctor nisi ac fringilla aliquet. Etiam non gravida magna. Morbi leo nisl, tincidunt vel pretium tristique, bibendum sit amet dui.
+
+Sed ultricies volutpat nulla, a rhoncus dolor ultricies sed. Morbi ac porta diam, et tincidunt sapien. Donec nec nulla ac metus euismod tincidunt. Praesent pretium neque quis lectus vulputate gravida. Proin a nulla sed massa accumsan blandit. Fusce in nulla euismod, posuere urna et, pulvinar massa. Pellentesque egestas bibendum augue, quis vestibulum nisl. Cras ornare turpis et est egestas bibendum. Aliquam convallis, felis id sagittis faucibus, felis massa vestibulum ex, sit amet blandit ligula risus at nulla. Suspendisse id egestas felis. Aenean cursus lorem eu aliquet condimentum. Duis augue ipsum, dictum a ligula ac, venenatis dapibus lectus. Vivamus interdum interdum velit, sed fermentum elit facilisis nec. Nulla dapibus facilisis hendrerit. Sed lobortis elit vitae auctor aliquet. Vivamus at justo consectetur, aliquam purus ut, interdum augue.
+
+Maecenas fermentum diam eu enim tempor finibus. Curabitur a tellus eget nisi semper fringilla. Donec ornare erat in vulputate vehicula. Cras vitae porta dui, sed placerat dui. Sed fermentum tristique turpis in sollicitudin. Cras sit amet finibus nisl. Nullam a ligula sed dui rhoncus tincidunt nec ut ipsum. Suspendisse sed molestie mauris. Vivamus iaculis orci sit amet nisi condimentum gravida. Nulla lobortis lorem ac nibh auctor tincidunt. Nullam posuere mauris in facilisis congue. Integer sed nunc at nunc tempor convallis. Mauris posuere nulla augue, sit amet efficitur turpis euismod vel. Phasellus varius diam a mi pellentesque viverra. Nulla ut pretium augue, non pulvinar quam. Morbi porta vestibulum augue, non ultricies mauris.
+
+Nam sed quam a ex venenatis rutrum et sed lacus. Aliquam finibus dignissim mi ac dictum. Phasellus eu tempor quam. Duis laoreet, felis eu pulvinar volutpat, augue tellus venenatis mi, et interdum sem est ut enim. Nunc non pretium est. Proin vitae posuere est. Proin auctor libero in erat molestie imperdiet. Curabitur rhoncus pharetra nisi, et placerat lectus hendrerit non. Sed ut urna vitae dui sagittis eleifend a id dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras vel nibh quam. Proin malesuada id magna a facilisis. Ut bibendum commodo mauris, a pulvinar ligula.
+
+Nunc erat sapien, suscipit ac nisl eget, dapibus aliquam neque. Donec at sodales diam. Proin condimentum ex vel nulla viverra, sit amet tempus sapien consequat. Maecenas non imperdiet urna. Ut at rhoncus lectus, eu viverra dui. Integer eget ligula efficitur, hendrerit turpis vel, commodo elit. Integer at interdum massa. Morbi lacus est, lacinia at nisi at, laoreet accumsan massa. In condimentum fermentum mi vitae molestie. Phasellus fringilla lectus lacus, quis sodales justo cursus non. Quisque mattis pellentesque mollis. Vivamus eget turpis id lorem placerat lobortis. Aliquam diam nisl, varius eget fringilla ac, auctor pharetra libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vulputate nisi in orci viverra maximus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
+  </div>
+  <p>Showing image with a click</p> 
+  <a href="https://www.tutorialspoint.com/how-to-show-images-with-a-click-in-javascript-using-html"> From tutorialspoint</a>
+  <button id="show-image-button">Show Image</button>
+  <img id="my-image" 
+       src="Bootstrap/images/plush-sonic-the-hedgehog-sonic-plush-phunny-1.png" hidden>
+  <script>
+     const showImageButton = document.getElementById("show-image-button");
+     const myImage = document.getElementById("my-image");
+     showImageButton.addEventListener("click", () => {
+        myImage.hidden = !myImage.hidden;
+     });
+  </script>
+
+
+
+  <p> Play sound using Javascript</p>
+  <button onclick="playSound()">Play Sound</button> <a href="https://www.geeksforgeeks.org/javascript/sound-generation-on-clicking-the-button-using-javascript/"> From geeksforgeeks</a>
+  <script>
+      function playSound() {
+
+        var audio = new Audio('indeximagesandaudio/siren.mp3');
+        audio.play()
+             .catch(error => console.error("Audio play failed:", error)); // Handle potential errors
+       }
+</script>
+
+
+  <p> Trigger an animation </p>
   
-  The meme originates from a video clip of a live stage performance of the musical Newsies. In the clip, an actor sings a line from the song "King of New York" with an incredibly enthusiastic and dramatic flair. The specific line is: "a barbershop haircut that costs a quarter."
+
+
+  <p> Timer</p>
   
-  The actor's delivery of this one line is what made the video go viral. His voice is powerful, his pronunciation of "quarter" as "quarta" has a distinct old-timey New York accent, and the sheer passion he puts into a seemingly mundane line stands out dramatically from the rest of the performance.
-  
-
-
-</p>
-
-
-
-  <a href="blue.html">
-  <div class="pageImageRed"></div>
-</a>
-
-<p>
-
-  The Meme's Evolution and Meaning
-  
-  The original clip was first posted online and gained traction with captions highlighting the actor's impressive, scene-stealing performance, such as "bro had the entire audience in less than 5 seconds." This initial context quickly evolved into a more chaotic, abstract form of humor.
-  
-  The meme's humor lies in its unexpected and over-the-top nature. People started to edit the clip in absurd ways, often with captions suggesting the actor's powerful voice was capable of causing catastrophic events, such as "bro really detonated the core of the Earth" or "bro destroyed the entire universe."
-  
-  The meme template is now used in a few key ways:
-  
-      Brainrot Edits: The video is edited with extreme visual and auditory effects, making it nonsensical and disorienting. This is a common form of "brainrot" humor, where the content is intentionally chaotic and overwhelming.
-  
-      Reenactments: Users film themselves attempting to perfectly reenact the actor's line, often rating their accuracy.
-  
-      General Reference to Chaos: The phrase "a barbershop haircut that costs a quarter" has become a standalone soundbite and reference for anything that is strangely dramatic, powerful, or surprisingly impactful.
-  
-  In essence, the barbershop haircut meme is a perfect storm of internet humor: an unscripted, highly specific moment from a niche performance that was taken and transformed into a symbol of surreal, explosive digital chaos.
-
-
-
-  
-</p>
-
-
-
-
 
 </body>
-
 </html>
 

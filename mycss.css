@@ -15,6 +15,11 @@ html {
     letter-spacing: 1px;
   }
   
+  p {
+    text-align: center;
+    font-size: 50px;
+  }
+
 body {
    padding-top: 100px; /* Example: push body content down so the clock doesn't cover it */
 }
@@ -125,4 +130,22 @@ button {
     top: 10px;
     left: 770px;
     justify-content: center; /* Centers the button horizontally */
+}
+
+.mystyle {
+  width: 100%;
+  padding: 25px;
+  background-color: coral;
+  color: white;
+  font-size: 25px;
+  box-sizing: border-box;
+  margin-top: 15px;
+}
+
+.newone {
+  width: 100%;
+  padding: 10px;
+  background-color: green;
+  color: white;
+  margin-top: 15px;
 }
