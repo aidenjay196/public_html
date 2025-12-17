@@ -20,7 +20,12 @@ html {
     font-size: 50px;
   }
 
-body {
+  p2 {
+    font-size: 25px; 
+    text-align: center;
+  }
+
+  body {
    padding-top: 100px; /* Example: push body content down so the clock doesn't cover it */
 }
 
@@ -48,6 +53,8 @@ nav a:visited {
   .red {
     background-color: red;
   }
+  
+  
   .green {
     background-color: green;
   }

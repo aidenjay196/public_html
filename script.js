@@ -95,4 +95,12 @@ function myFunction() {
          timeRemaining--;
      }
  }
- 
+
+ function changeImage() {
+    var image = document.getElementById('myImage1');
+    if (image.src.match("houseon")) {
+      image.src = "indeximagesandaudio/houseoff.png";
+    } else {
+      image.src = "indeximagesandaudio/houseon.png";
+    }
+  }
