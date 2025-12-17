@@ -148,4 +148,10 @@ button {
   background-color: green;
   color: white;
   margin-top: 15px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#car {
+  position: relative;
+  cursor: pointer;
 }

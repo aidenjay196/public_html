@@ -75,12 +75,35 @@ Nunc erat sapien, suscipit ac nisl eget, dapibus aliquam neque. Donec at sodales
 </script>
 
 
-  <p> Trigger an animation </p>
+  <p> Trigger an animation </p> <a href="https://javascript.info/js-animation"> From Javascript.info</a>
+  <img id="car" src="indeximagesandaudio/car.png">
+
+
+  <script>
+    car.onclick = function() {
+      let start = Date.now();
+
+      let timer = setInterval(function() {
+        let timePassed = Date.now() - start;
+
+        car.style.left = timePassed / 2 + 'px';
+
+        if (timePassed > 2000) clearInterval(timer);
+
+      }, 20);
+    }
+  </script>
+
   
-
-
   <p> Timer</p>
-  
+  <div>
+    <label for="durationInput">Set time in seconds:</label>
+    <input type="number" id="durationInput" placeholder="e.g., 60">
+    <button onclick="startTimer()">Start</button>
+    <button onclick="stopTimer()">Stop</button>
+  </div>
+
+<p>Time remaining: <span id="timerDisplay">00:00</span></p>
 
 </body>
 </html>
