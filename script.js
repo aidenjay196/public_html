@@ -84,7 +84,7 @@ function myFunction() {
      if (timeRemaining <= 0) {
          clearInterval(countdownInterval);
          countdownInterval = null;
-         display.textContent = "00:00 - Time Up!";
+         display.textContent = "00:00 - Times Up!";
          
          // 2. Play the sound
          alarmSound.play().catch(error => {
