@@ -26,6 +26,8 @@
 <body>
     <canvas id="myCanvas" width="480" height="320"></canvas>
     <button id="runButton">Start game</button>
+    <a href="asteroids-template.html"> Asteroids in Javascript 1979 Atari Game</a>
+
     <script>
         const canvas = document.getElementById("myCanvas");
         const ctx = canvas.getContext("2d");
@@ -138,7 +140,7 @@
                         bricks[c][r].y = brickY;
                         ctx.beginPath();
                         ctx.rect(brickX, brickY, brickWidth, brickHeight);
-                        ctx.fillStyle = "#ff0000    ";
+                        ctx.fillStyle = "#AA4A44";
                         ctx.fill();
                         ctx.closePath();
                     }
