@@ -10,7 +10,7 @@
 <body>
     <canvas id="gameCanvas" width="760" height="570"></canvas>
     <script>
-        const FPS = 30; // frames per second
+        const FPS = 60; // frames per second
         const FRICTION = 0.7; // friction coefficient of space (0 = no friction, 1 = lots of friction)
         const ROID_JAG = 0.4; // jaggedness of the asteroids (0 = none, 1 = lots)
         const ROID_NUM = 3; // starting number of asteroids
@@ -20,6 +20,7 @@
         const SHIP_SIZE = 30; // ship height in pixels
         const SHIP_THRUST = 5; // acceleration of the ship in pixels per second per second
         const SHIP_TURN_SPD = 360; // turn speed in degrees per second
+        const SHOW_BOUNDING = true; // show or hide collision bounding
         const SHOW_CENTRE_DOT = false; // show or hide ship's centre dot
 
         /** @type {HTMLCanvasElement} */
@@ -170,6 +171,18 @@
             );
             ctx.closePath();
             ctx.stroke();
+
+            if (SHOW_BOUNDING) { 
+                ctx.strokeStyle = "lime";
+                ctx.beginPath();
+                ctx.arc(ship.x, ship.y, ship.r, 0, Math.PI * 2, false);
+                ctx.stroke();
+            }
+
+
+
+
+
 
             // draw the asteroids
             ctx.strokeStyle = "slategrey";
