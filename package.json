@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "os-utils": "^0.0.14"
+  },
+  "name": "public_html",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aidenjay196/public_html.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aidenjay196/public_html/issues"
+  },
+  "homepage": "https://github.com/aidenjay196/public_html#readme",
+  "description": ""
+}
