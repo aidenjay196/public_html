@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "openweather-api-node": "^3.1.5",
     "os-utils": "^0.0.14"
   },
   "name": "public_html",
