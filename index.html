@@ -8,7 +8,7 @@
 </head>
   
   <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
-  <script  src="./script.js"></script>
+  <script  src="script.js"></script>
   
   <!-- buttons to change style-->
   <button onclick="changeStyle('style1')">Style 1</button>
@@ -34,90 +34,45 @@
       <a href="javascript-basic-projects/"> Javascript basic projects</a>|
     </h1>     
   </nav>
-  
-  
-  <p> Changing image with buttons</p> <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_lightbulb"> From W3 Schools</a>
-  <div style="display: flex; justify-content: center; align-items: center; height: 50vh;">
-    <img id="myImage1" onclick="changeImage()" src="indeximagesandaudio/houseoff.png" width="265" height="270">
-  </div>
-  <p2>Click the house to turn on/off the light.</p2>  
-  
-  
-  
-  
-  <p> Changing HTML with Javascript</p> <a href="https://www.w3schools.com/howto/howto_js_change_class.asp"> From W3 Schools</a>
-  <button onclick="myFunction()">Try it</button>
 
-  <div id="myDIV" class="mystyle"> 
+<div class="container">
+    <p1 id="joke">Loading joke...</p1>
+    <button id="jokeBtn">Get New Joke</button>
+</div>
+
+<script>
+    const jokeEl = document.getElementById('joke');
+    const buttonEl = document.getElementById('jokeBtn');
+
+
+    const url = 'https://icanhazdadjoke.com/';
+
+    async function getJoke() {
+        jokeEl.innerHTML = 'Thinking...';
+        
+        try {
+            const response = await fetch(url, {
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            const data = await response.json();
+            
+            
+            jokeEl.innerHTML = data.joke;
+        } catch (error) {
+            jokeEl.innerHTML = 'Dad is sleeping... (Error)';
+        }
+    }
+
+    buttonEl.addEventListener('click', getJoke);
     
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor, mauris non tempus fermentum, lectus tellus sollicitudin enim, nec condimentum dui tortor non sapien. Duis tellus felis, mattis quis lacus sollicitudin, bibendum finibus felis. Praesent in consectetur lectus. In in aliquet elit. Pellentesque tincidunt erat sed ultricies posuere. Etiam euismod, erat non cursus rhoncus, massa mi tincidunt odio, sit amet tempor velit sem nec metus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas porta enim quis dolor convallis, eu maximus lorem facilisis. Nulla auctor nisi ac fringilla aliquet. Etiam non gravida magna. Morbi leo nisl, tincidunt vel pretium tristique, bibendum sit amet dui.
-
-Sed ultricies volutpat nulla, a rhoncus dolor ultricies sed. Morbi ac porta diam, et tincidunt sapien. Donec nec nulla ac metus euismod tincidunt. Praesent pretium neque quis lectus vulputate gravida. Proin a nulla sed massa accumsan blandit. Fusce in nulla euismod, posuere urna et, pulvinar massa. Pellentesque egestas bibendum augue, quis vestibulum nisl. Cras ornare turpis et est egestas bibendum. Aliquam convallis, felis id sagittis faucibus, felis massa vestibulum ex, sit amet blandit ligula risus at nulla. Suspendisse id egestas felis. Aenean cursus lorem eu aliquet condimentum. Duis augue ipsum, dictum a ligula ac, venenatis dapibus lectus. Vivamus interdum interdum velit, sed fermentum elit facilisis nec. Nulla dapibus facilisis hendrerit. Sed lobortis elit vitae auctor aliquet. Vivamus at justo consectetur, aliquam purus ut, interdum augue.
-
-Maecenas fermentum diam eu enim tempor finibus. Curabitur a tellus eget nisi semper fringilla. Donec ornare erat in vulputate vehicula. Cras vitae porta dui, sed placerat dui. Sed fermentum tristique turpis in sollicitudin. Cras sit amet finibus nisl. Nullam a ligula sed dui rhoncus tincidunt nec ut ipsum. Suspendisse sed molestie mauris. Vivamus iaculis orci sit amet nisi condimentum gravida. Nulla lobortis lorem ac nibh auctor tincidunt. Nullam posuere mauris in facilisis congue. Integer sed nunc at nunc tempor convallis. Mauris posuere nulla augue, sit amet efficitur turpis euismod vel. Phasellus varius diam a mi pellentesque viverra. Nulla ut pretium augue, non pulvinar quam. Morbi porta vestibulum augue, non ultricies mauris.
-
-Nam sed quam a ex venenatis rutrum et sed lacus. Aliquam finibus dignissim mi ac dictum. Phasellus eu tempor quam. Duis laoreet, felis eu pulvinar volutpat, augue tellus venenatis mi, et interdum sem est ut enim. Nunc non pretium est. Proin vitae posuere est. Proin auctor libero in erat molestie imperdiet. Curabitur rhoncus pharetra nisi, et placerat lectus hendrerit non. Sed ut urna vitae dui sagittis eleifend a id dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras vel nibh quam. Proin malesuada id magna a facilisis. Ut bibendum commodo mauris, a pulvinar ligula.
-
-Nunc erat sapien, suscipit ac nisl eget, dapibus aliquam neque. Donec at sodales diam. Proin condimentum ex vel nulla viverra, sit amet tempus sapien consequat. Maecenas non imperdiet urna. Ut at rhoncus lectus, eu viverra dui. Integer eget ligula efficitur, hendrerit turpis vel, commodo elit. Integer at interdum massa. Morbi lacus est, lacinia at nisi at, laoreet accumsan massa. In condimentum fermentum mi vitae molestie. Phasellus fringilla lectus lacus, quis sodales justo cursus non. Quisque mattis pellentesque mollis. Vivamus eget turpis id lorem placerat lobortis. Aliquam diam nisl, varius eget fringilla ac, auctor pharetra libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vulputate nisi in orci viverra maximus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-  </div>
-  <p>Showing image with a click</p> 
-  <a href="https://www.tutorialspoint.com/how-to-show-images-with-a-click-in-javascript-using-html"> From tutorialspoint</a>
-  <button id="show-image-button">Show Image</button>
-  <img id="my-image" 
-       src="Bootstrap/images/plush-sonic-the-hedgehog-sonic-plush-phunny-1.png" hidden>
-  <script>
-     const showImageButton = document.getElementById("show-image-button");
-     const myImage = document.getElementById("my-image");
-     showImageButton.addEventListener("click", () => {
-        myImage.hidden = !myImage.hidden;
-     });
-  </script>
-
-
-
-  <p> Play sound using Javascript</p>
-  <button onclick="playSound()">Play Sound</button> <a href="https://www.geeksforgeeks.org/javascript/sound-generation-on-clicking-the-button-using-javascript/"> From geeksforgeeks</a>
-  <script>
-      function playSound() {
-
-        var audio = new Audio('indeximagesandaudio/siren.mp3');
-        audio.play()
-             .catch(error => console.error("Audio play failed:", error)); 
-       }
+   
+    getJoke();
 </script>
 
 
-  <p> Trigger an animation </p> <a href="https://javascript.info/js-animation"> From Javascript.info</a>
-  <img id="car" src="indeximagesandaudio/car.png">
-
-
-  <script>
-    car.onclick = function() {
-      let start = Date.now();
-
-      let timer = setInterval(function() {
-        let timePassed = Date.now() - start;
-
-        car.style.left = timePassed / 2 + 'px';
-
-        if (timePassed > 2000) clearInterval(timer);
-
-      }, 20);
-    }
-  </script>
-
-  
-  <p> Timer</p> 
-  <div>
-    <label for="durationInput">Set time in seconds:</label>
-    <input type="number" id="durationInput" placeholder="e.g., 60">
-    <a href="https://www.youtube.com/watch?v=0JQASwPuNB0"> From Programmingknowledge on yt</a>
-    <button onclick="startTimer()">Start</button>
-    <button onclick="stopTimer()">Stop</button>
-  </div>
-
-<p>Time remaining: <span id="timerDisplay">00:00</span></p>
 
 </body>
 </html>
