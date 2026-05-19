@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fun JS Utilities</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #0f1117;
+      color: #e8eaf0;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #6b7280;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #1a1d27;
+      border: 1px solid #2a2d3a;
+      border-radius: 14px;
+      padding: 1.2rem 1.4rem;
+    }
+
+    .card.wide { grid-column: 1 / -1; }
+
+    .card-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #6b7280;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .output {
+      background: #12141c;
+      border: 1px solid #2a2d3a;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 0.9rem;
+      min-height: 40px;
+      margin-bottom: 12px;
+      word-break: break-all;
+      color: #c9d1e0;
+      line-height: 1.5;
+    }
+
+    .output.mono { font-family: 'Courier New', monospace; font-size: 0.82rem; }
+    .output.center { text-align: center; font-size: 1.3rem; }
+    .output.big { font-size: 2rem; font-weight: 600; text-align: center; color: #e8eaf0; }
+
+    button {
+      background: #252836;
+      color: #c9d1e0;
+      border: 1px solid #3a3d50;
+      border-radius: 8px;
+      padding: 8px 18px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+    }
+    button:hover { background: #2f3347; }
+    button:active { transform: scale(0.97); }
+
+    .btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    .slider-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .slider-row label { font-size: 0.82rem; color: #6b7280; white-space: nowrap; }
+    .slider-row span { font-size: 0.85rem; font-weight: 600; min-width: 28px; color: #a0aec0; }
+
+    input[type="range"] {
+      flex: 1;
+      accent-color: #6366f1;
+      height: 4px;
+      cursor: pointer;
+    }
+
+    .swatch-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .swatch {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      border: 1px solid #2a2d3a;
+      cursor: pointer;
+      transition: transform 0.15s;
+    }
+    .swatch:hover { transform: scale(1.1); }
+
+    .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+    .tag {
+      font-size: 0.8rem;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: #252836;
+      border: 1px solid #3a3d50;
+      color: #c9d1e0;
+    }
+    .tag.picked { background: #312e81; border-color: #6366f1; color: #c7d2fe; }
+
+    .fz-row { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
+    .fz {
+      font-size: 0.75rem;
+      padding: 3px 9px;
+      border-radius: 6px;
+      background: #252836;
+      border: 1px solid #3a3d50;
+      color: #9ca3af;
+    }
+    .fz.fizzbuzz { background: #312e81; border-color: #6366f1; color: #c7d2fe; font-weight: 600; }
+    .fz.fizz     { background: #052e16; border-color: #16a34a; color: #86efac; }
+    .fz.buzz     { background: #431407; border-color: #ea580c; color: #fdba74; }
+
+    .toast {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: #252836;
+      border: 1px solid #3a3d50;
+      border-radius: 10px;
+      padding: 10px 18px;
+      font-size: 0.85rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      color: #c9d1e0;
+    }
+    .toast.show { opacity: 1; }
+  </style>
+</head>
+<body>
+
+  <h1>🎲 Fun JS Utilities</h1>
+  <p class="subtitle">Open the browser console to see JS output too</p>
+
+  <div class="grid">
+
+    <!-- Password Generator -->
+    <div class="card">
+      <p class="card-title">🔑 Password Generator</p>
+      <div class="slider-row">
+        <label>Length</label>
+        <input type="range" id="pw-len" min="6" max="32" value="16" step="1"
+               oninput="document.getElementById('pw-len-out').textContent=this.value">
+        <span id="pw-len-out">16</span>
+      </div>
+      <div class="output mono" id="pw-out">Click generate...</div>
+      <div class="btn-row">
+        <button onclick="genPassword()">Generate</button>
+        <button onclick="copyText('pw-out')">Copy</button>
+      </div>
+    </div>
+
+    <!-- Coin Flip -->
+    <div class="card">
+      <p class="card-title">🪙 Coin Flip</p>
+      <div class="output center" id="coin-out">—</div>
+      <button onclick="flipCoin()">Flip</button>
+    </div>
+
+    <!-- Random Joke -->
+    <div class="card">
+      <p class="card-title">😂 Random Joke</p>
+      <div class="output" id="joke-out" style="font-size:0.85rem; line-height:1.6;">Click for a joke...</div>
+      <button onclick="getJoke()">New Joke</button>
+    </div>
+
+    <!-- Hex Color Generator -->
+    <div class="card">
+      <p class="card-title">🎨 Hex Color Generator</p>
+      <div class="swatch-row" id="swatches"></div>
+      <div class="output mono" id="hex-out">—</div>
+      <div class="btn-row">
+        <button onclick="genColors()">Generate</button>
+        <button onclick="copyText('hex-out')">Copy All</button>
+      </div>
+    </div>
+
+    <!-- Array Shuffler -->
+    <div class="card">
+      <p class="card-title">🔀 Array Shuffler</p>
+      <div class="tag-row" id="fruit-out"></div>
+      <div class="output" id="pick-out">Hit shuffle to pick!</div>
+      <button onclick="doShuffle()">Shuffle &amp; Pick</button>
+    </div>
+
+    <!-- Countdown Timer -->
+    <div class="card">
+      <p class="card-title">⏳ Countdown Timer</p>
+      <div class="slider-row">
+        <label>Seconds</label>
+        <input type="range" id="cd-len" min="3" max="60" value="10" step="1"
+               oninput="onCdSlide(this.value)">
+        <span id="cd-len-out">10</span>
+      </div>
+      <div class="output big" id="timer-out">10</div>
+      <div class="btn-row">
+        <button onclick="startCountdown()">▶ Start</button>
+        <button onclick="resetCountdown()">↺ Reset</button>
+      </div>
+    </div>
+
+    <!-- FizzBuzz -->
+    <div class="card wide">
+      <p class="card-title">🔢 FizzBuzz</p>
+      <div class="slider-row">
+        <label>Up to</label>
+        <input type="range" id="fz-len" min="10" max="100" value="30" step="1"
+               oninput="document.getElementById('fz-len-out').textContent=this.value; doFizzBuzz()">
+        <span id="fz-len-out">30</span>
+      </div>
+      <div class="fz-row" id="fz-out"></div>
+    </div>
+
+  </div>
+
+  <div class="toast" id="toast">Copied!</div>
+
+  <script>
+    // ─── Password Generator ───────────────────────────────────────
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+
+    function generatePassword(length = 12) {
+      return Array.from({ length }, () => chars[Math.floor(Math.random() * chars.length)]).join("");
+    }
+
+    function genPassword() {
+      const len = parseInt(document.getElementById("pw-len").value);
+      const pw = generatePassword(len);
+      document.getElementById("pw-out").textContent = pw;
+      console.log("Generated password:", pw);
+    }
+
+    // ─── Coin Flip ────────────────────────────────────────────────
+    function flipCoin() {
+      const el = document.getElementById("coin-out");
+      const options = ["Heads", "Tails"];
+      let i = 0;
+      const spin = setInterval(() => { el.textContent = options[i++ % 2]; }, 80);
+      setTimeout(() => {
+        clearInterval(spin);
+        const result = Math.random() < 0.5 ? "Heads 🪙" : "Tails 🪙";
+        el.textContent = result;
+        console.log("Coin flip:", result);
+      }, 600);
+    }
+
+    // ─── Random Joke ──────────────────────────────────────────────
+    const jokes = [
+      "Why do programmers prefer dark mode? Because light attracts bugs! 🐛",
+      "A SQL query walks into a bar, walks up to two tables and asks... 'Can I join you?' 🍺",
+      "Why did the developer go broke? Because he used up all his cache. 💸",
+      "What's a computer's favorite snack? Microchips! 🍟",
+      "I told my computer I needed a break... now it won't stop sending me KitKat ads. 🍫",
+      "How many programmers does it take to change a light bulb? None — that's a hardware problem. 💡",
+      "Why was the JavaScript developer sad? Because he didn't know how to 'null' his feelings. 😢",
+    ];
+    let lastJoke = -1;
+
+    function getRandomJoke() {
+      let idx;
+      do { idx = Math.floor(Math.random() * jokes.length); } while (idx === lastJoke);
+      lastJoke = idx;
+      return jokes[idx];
+    }
+
+    function getJoke() {
+      const joke = getRandomJoke();
+      document.getElementById("joke-out").textContent = joke;
+      console.log("Joke:", joke);
+    }
+
+    // ─── Hex Color Generator ──────────────────────────────────────
+    function randomHexColor() {
+      return "#" + Math.floor(Math.random() * 0xFFFFFF).toString(16).padStart(6, "0").toUpperCase();
+    }
+
+    function genColors() {
+      const colors = Array.from({ length: 5 }, randomHexColor);
+      document.getElementById("swatches").innerHTML = colors
+        .map(c => `<div class="swatch" style="background:${c}" title="${c}" onclick="copyRaw('${c}')"></div>`)
+        .join("");
+      document.getElementById("hex-out").textContent = colors.join("  ");
+      console.log("Generated colors:", colors);
+    }
+
+    // ─── Array Shuffler ───────────────────────────────────────────
+    function shuffle(arr) {
+      return [...arr].sort(() => Math.random() - 0.5);
+    }
+
+    function pickRandom(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    const fruits = ["Apple 🍎", "Banana 🍌", "Grape 🍇", "Strawberry 🍓", "Mango 🥭", "Peach 🍑", "Kiwi 🥝"];
+
+    function doShuffle() {
+      const shuffled = shuffle(fruits);
+      const picked = pickRandom(shuffled);
+      document.getElementById("fruit-out").innerHTML = shuffled
+        .map(f => `<span class="tag${f === picked ? " picked" : ""}">${f}</span>`)
+        .join("");
+      document.getElementById("pick-out").textContent = "Random pick: " + picked;
+      console.log("Shuffled:", shuffled, "| Picked:", picked);
+    }
+
+    // ─── Countdown Timer ──────────────────────────────────────────
+    let cdInterval = null;
+    let cdRunning = false;
+
+    function countdown(seconds, onTick, onDone) {
+      let remaining = seconds;
+      onTick(remaining);
+      return setInterval(() => {
+        remaining--;
+        onTick(remaining);
+        if (remaining <= 0) { clearInterval(cdInterval); cdRunning = false; onDone(); }
+      }, 1000);
+    }
+
+    function startCountdown() {
+      if (cdRunning) return;
+      cdRunning = true;
+      const secs = parseInt(document.getElementById("cd-len").value);
+      console.log("Countdown started:", secs + "s");
+      cdInterval = countdown(
+        secs,
+        (n) => { document.getElementById("timer-out").textContent = n; },
+        ()  => { document.getElementById("timer-out").textContent = "Done! 🎉"; console.log("Time's up!"); }
+      );
+    }
+
+    function resetCountdown() {
+      clearInterval(cdInterval);
+      cdRunning = false;
+      const val = document.getElementById("cd-len").value;
+      document.getElementById("timer-out").textContent = val;
+    }
+
+    function onCdSlide(val) {
+      document.getElementById("cd-len-out").textContent = val;
+      if (!cdRunning) document.getElementById("timer-out").textContent = val;
+    }
+
+    // ─── FizzBuzz ─────────────────────────────────────────────────
+    function fizzBuzz(n) {
+      return Array.from({ length: n }, (_, i) => {
+        const num = i + 1;
+        if (num % 15 === 0) return { label: "FizzBuzz", cls: "fizzbuzz" };
+        if (num % 3  === 0) return { label: "Fizz",     cls: "fizz" };
+        if (num % 5  === 0) return { label: "Buzz",     cls: "buzz" };
+        return { label: String(num), cls: "" };
+      });
+    }
+
+    function doFizzBuzz() {
+      const n = parseInt(document.getElementById("fz-len").value);
+      const results = fizzBuzz(n);
+      document.getElementById("fz-out").innerHTML = results
+        .map(r => `<span class="fz ${r.cls}">${r.label}</span>`)
+        .join("");
+      console.log("FizzBuzz(1–" + n + "):", results.map(r => r.label));
+    }
+
+    // ─── Helpers ──────────────────────────────────────────────────
+    function copyText(id) {
+      const text = document.getElementById(id).textContent;
+      copyRaw(text);
+    }
+
+    function copyRaw(text) {
+      navigator.clipboard.writeText(text).then(() => showToast("Copied!"));
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById("toast");
+      t.textContent = msg;
+      t.classList.add("show");
+      setTimeout(() => t.classList.remove("show"), 1800);
+    }
+
+    // ─── Init ─────────────────────────────────────────────────────
+    genPassword();
+    flipCoin();
+    getJoke();
+    genColors();
+    doShuffle();
+    doFizzBuzz();
+  </script>
+
+</body>
+</html>

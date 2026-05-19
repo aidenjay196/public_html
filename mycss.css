@@ -1,142 +1,166 @@
 html {
-    height: 100%;
-    width: 100%;
-  }
-  .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin-left: 25%;
-    margin-right: 32%;
-  }
+  height: 100%;
+  width: 100%;
+}
 
-  nav {
-    font-family: "Verdana", sans-serif;
-    text-align: center;
-    letter-spacing: 1px;
-  }
-  
-  p {
-    text-align: center;
-    font-size: 50px;
-  }
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-left: 25%;
+  margin-right: 32%;
+}
 
-  p2 {
-    font-size: 25px; 
-    text-align: center;
-  }
+nav {
+  font-family: "Verdana", sans-serif;
+  text-align: center;
+  letter-spacing: 1px;
+}
 
-  body {
-   padding-top: 100px; /* Example: push body content down so the clock doesn't cover it */
+p {
+  text-align: center;
+  font-size: 50px;
+}
+
+p2 {
+  font-size: 25px;
+  text-align: center;
+}
+
+body {
+  padding-top: 100px;
+  /* Example: push body content down so the clock doesn't cover it */
 }
 
 nav a:visited {
   color: rgb(238, 255, 0);
 }
-  
-    a:link, a:visited {
-    color: white;
-    padding: 14px 25px;
-    text-align: center;
-}
-  
 
-  a.red:link {color: green;}
-  a.red:visited {color: green;}
-  a.green:link {color:purple;}
-  a.green:visited {color:purple;}
-  a.blue:link {color: orange;}
-  a.blue:visited {color: orange;}
-  
+a:link,
+a:visited {
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+}
 
-  
 
-  .red {
-    background-color: red;
-  }
-  
-  
-  .green {
-    background-color: green;
-  }
-  .blue {background-color: blue;
-  }
-  
-  .pageImageRed {
-    background-image: url("ThreePage/images/adrian.png");
-    background-color: red; 
-    height: 80vh; 
-    width: 80%; 
-    margin-left: 10%; 
-    margin-right: 10%;
-    background-repeat: no-repeat; 
-    background-position: center; 
-    background-size: cover; 
-    background-attachment: fixed; 
+a.red:link {
+  color: green;
 }
-  
- 
-  .pageImageGreen {
-    background-image: url("ThreePage/images/barbershop.png");
-    background-color: green; 
-    height: 80vh; 
-    width: 80%; 
-    margin-left: 10%; 
-    margin-right: 10%; 
-    background-repeat: no-repeat;
-    background-position: center; 
-    background-size: cover; 
-    background-attachment: fixed; 
+
+a.red:visited {
+  color: green;
 }
-  
-  
-  .pageImageBlue {
-    background-image: url("ThreePage/images/eeffoc.png");
-    background-position: bottom center;
-    background-color: blue;
-    height: 100vh; 
-    width: 80%; 
-    margin-right: 10%;
-    margin-left: 10%; 
-    background-repeat: no-repeat; 
-    background-position: center; 
-    background-size: cover; 
-    background-attachment: fixed; 
+
+a.green:link {
+  color: purple;
 }
+
+a.green:visited {
+  color: purple;
+}
+
+a.blue:link {
+  color: orange;
+}
+
+a.blue:visited {
+  color: orange;
+}
+
+
+
+
+.red {
+  background-color: red;
+}
+
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.pageImageRed {
+  background-image: url("ThreePage/images/adrian.png");
+  background-color: red;
+  height: 80vh;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
+.pageImageGreen {
+  background-image: url("ThreePage/images/barbershop.png");
+  background-color: green;
+  height: 80vh;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
+.pageImageBlue {
+  background-image: url("ThreePage/images/eeffoc.png");
+  background-position: bottom center;
+  background-color: blue;
+  height: 100vh;
+  width: 80%;
+  margin-right: 10%;
+  margin-left: 10%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 .clock {
   position: absolute;
-  top: 10%; 
+  top: 10%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   letter-spacing: 7px;
   color: #4400ff;
   font-size: 60px;
-  font-family: 'Times New Roman', Times, serif, sans-serif; 
+  font-family: 'Times New Roman', Times, serif, sans-serif;
 }
 
 
 .style2 {
-    color: #00BFFF; 
-    font-size: 80px;
-    font-family: 'Courier New', Courier, monospace;
-    font-style: italic;
+  color: #00BFFF;
+  font-size: 80px;
+  font-family: 'Courier New', Courier, monospace;
+  font-style: italic;
 }
 
 .style3 {
-    color: #00ff6a; 
-    font-size: 40px;
-    font-family: Arial, sans-serif;
-    letter-spacing: 2px;
-    font-weight: 900;
-  }
+  color: #00ff6a;
+  font-size: 40px;
+  font-family: Arial, sans-serif;
+  letter-spacing: 2px;
+  font-weight: 900;
+}
 
 button {
-    margin: 10px;
-    padding: 10px 15px;
-    cursor: pointer;
-    position: relative;
-    top: 10px;
-    left: 770px;
-    justify-content: center; /* Centers the button horizontally */
+  margin: 10px;
+  padding: 10px 15px;
+  cursor: pointer;
+  position: relative;
+  top: 10px;
+  left: 770px;
+  justify-content: center;
+  /* Centers the button horizontally */
 }
 
 .mystyle {
@@ -162,3 +186,4 @@ button {
   position: relative;
   cursor: pointer;
 }
+

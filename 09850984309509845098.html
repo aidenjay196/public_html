@@ -1,0 +1,156 @@
+<html>
+
+<head>
+  <title>aiden's index</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="mycss.css" type="text/css">
+</head>
+  
+  <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+  <script  src="script.js"></script>
+  
+  <!-- buttons to change style-->
+  <button onclick="changeStyle('style1')">Style 1</button>
+  <button onclick="changeStyle('style2')">Style 2</button>
+  <button onclick="changeStyle('style3')">Style 3</button>
+
+  <body class="red">
+
+  
+  <!-- Nav links -->
+  <nav>
+    <h1>
+      <a href="ThreePage/red.html">3 Page</a> |
+      <a href="FivePage/template.html"> 5 Page Template</a>|
+      <a href="FivePage/index.html">5 Page Website</a>|
+      <a href="PsuedoElements/starter.html"> Psuedo Elements</a>|
+      <a href="FivePageAnimated/index.html"> 5 Animated</a>|
+      <a href="CssZenPatel/index.html"> CSS Zen Garden</a>|
+      <a href="FlexBox/flexboxpractice.html"> FlexBox </a>|
+      <a href="FlexBox/"> Tailwind </a>|
+      <a href="Bootstrap/"> Bootstrap</a>|
+      <a href="JavascriptGames/index.html"> Javascript Breakout Game</a>|
+      <a href="javascript-basic-projects/"> Javascript basic projects</a>|
+      <a href="claudeai/funUtils.html"> Claude AI</a>|
+
+    </h1>     
+  </nav>
+<p> Random Joke Generator</p>
+<div class="container">
+    <p1 id="joke">Loading joke...</p1>
+    <button id="jokeBtn">Get New Joke</button>
+</div>
+
+<script>
+    const jokeEl = document.getElementById('joke');
+    const buttonEl = document.getElementById('jokeBtn');
+
+
+    const url = 'https://icanhazdadjoke.com/';
+
+    async function getJoke() {
+        jokeEl.innerHTML = 'Thinking...';
+        
+        try {
+            const response = await fetch(url, {
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            const data = await response.json();
+            
+            
+            jokeEl.innerHTML = data.joke;
+        } catch (error) {
+            jokeEl.innerHTML = 'Dad is sleeping... (Error)';
+        }
+    }
+
+    buttonEl.addEventListener('click', getJoke);
+    
+   
+    getJoke();
+</script>
+<br>
+<br>
+<br>
+<br>
+
+    <p>Zelda Character API</p>
+    <button id="randomBtn">Find a Random Character</button>
+
+    <div id="card">
+        <h2 id="charName">Press the button!</h2>
+        <p id="charDesc">Who will appear?</p>
+        
+    </div>
+
+    <script>
+        const btn = document.getElementById('randomBtn');
+        const nameDisplay = document.getElementById('charName');
+        const descDisplay = document.getElementById('charDesc');
+
+        btn.addEventListener('click', async () => {
+            nameDisplay.textContent = "Searching...";
+            descDisplay.textContent = "";
+
+            try {
+                
+                const response = await fetch('https://zelda.fanapis.com/api/characters');
+                const result = await response.json();
+                const characters = result.data;
+
+                const randomChar = characters[Math.floor(Math.random() * characters.length)];
+
+                nameDisplay.textContent = randomChar.name;
+                descDisplay.textContent = randomChar.description || "A mysterious figure with no known history.";
+            } catch (error) {
+                nameDisplay.textContent = "Error!";
+                descDisplay.textContent = "Could not fetch character data.";
+            }
+        });
+    </script>
+<br>
+<br>
+<br>
+<br>    
+    
+    <p> Random Meme Generator</p>
+    <div class="meme-card">
+        <h1>Meme Generator</h1>
+        <button id="get-meme">Gimme a Meme!</button>
+        <h3 id="meme-title"></h3>
+        <img id="meme-img" src="" alt="Random Meme">
+    </div>
+
+    <script>
+        const btn1 = document.getElementById('get-meme');
+        const title = document.getElementById('meme-title');
+        const img = document.getElementById('meme-img');
+
+        // fetch meme data from api
+        async function fetchMeme() {
+            try {
+                const response = await fetch('https://meme-api.com/gimme');
+                const data = await response.json();
+
+                // Update UI with API results
+                title.innerText = data.title;
+                img.src = data.url;
+                img.style.display = 'block';
+            } catch (error) {
+                console.error("Error fetching meme:", error);
+                title.innerText = "Failed to load meme. Try again!";
+            }
+        }
+
+        // trigger the fetch on button click
+        btn1.addEventListener('click', fetchMeme);
+    </script>
+
+
+</body>
+</html>
+

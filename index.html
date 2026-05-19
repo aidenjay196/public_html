@@ -1,79 +1,369 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>adrians eeffoc barbershop</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="mycss.css" type="text/css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>aiden's index</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #09090f;
+      --surface:  #0f1020;
+      --card:     #13152a;
+      --border:   #1e2240;
+      --accent:   #1e3a8a;
+      --accent2:  #2563eb;
+      --glow:     rgba(37, 99, 235, 0.18);
+      --text:     #e8eaf6;
+      --muted:    #7b82a8;
+      --mono:     'Space Mono', monospace;
+      --sans:     'DM Sans', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── GRID LINES ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 48px 48px;
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── GLOW ORB ── */
+    body::after {
+      content: '';
+      position: fixed;
+      top: -200px; left: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(37,99,235,0.12) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page-wrap { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+
+    /* ── CLOCK ── */
+    .clock {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: right;
+      letter-spacing: 0.1em;
+      padding: 0.5rem 0 2rem;
+    }
+
+    /* ── HEADER ── */
+    header {
+      border-left: 3px solid var(--accent2);
+      padding-left: 1.25rem;
+      margin-bottom: 3rem;
+    }
+    header h1 {
+      font-family: var(--mono);
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #fff;
+      line-height: 1.1;
+    }
+    header p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+      font-weight: 300;
+    }
+
+    /* ── STYLE SWITCHER ── */
+    .style-bar {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .style-bar button {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.35rem 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .style-bar button:hover {
+      background: var(--glow);
+      border-color: var(--accent2);
+      color: var(--text);
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 3rem;
+    }
+    nav .nav-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--accent2);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+    }
+    nav .link-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    nav a {
+      display: inline-block;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-decoration: none;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.3rem 0.75rem;
+      transition: all 0.18s;
+      white-space: nowrap;
+    }
+    nav a:hover {
+      color: #fff;
+      border-color: var(--accent2);
+      background: var(--glow);
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      color: var(--accent2);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    /* ── CARDS ── */
+    .widget-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .widget-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent2), transparent);
+    }
+    .widget-card:hover { border-color: rgba(37,99,235,0.4); }
+
+    /* ── OUTPUT DISPLAY ── */
+    .output-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 2.5rem;
+    }
+    .output-box.loading { color: var(--muted); font-style: italic; }
+
+    /* ── CHARACTER CARD ── */
+    #card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+    }
+    #card h2 { font-size: 1.1rem; font-weight: 500; margin-bottom: 0.4rem; }
+    #card p  { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── MEME ── */
+    #meme-title { font-size: 0.9rem; color: var(--muted); margin: 0.75rem 0 0.5rem; }
+    #meme-img   { max-width: 100%; border-radius: 8px; display: none; border: 1px solid var(--border); }
+
+    /* ── BUTTON ── */
+    button {
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      background: var(--accent);
+      color: #c7d7ff;
+      border: 1px solid rgba(37,99,235,0.5);
+      border-radius: 7px;
+      padding: 0.55rem 1.25rem;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    button:hover {
+      background: var(--accent2);
+      color: #fff;
+      box-shadow: 0 0 16px rgba(37,99,235,0.35);
+    }
+    button:active { transform: scale(0.97); }
+  </style>
 </head>
-  
-  <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
-  <script  src="script.js"></script>
-  
-  <!-- buttons to change style-->
-  <button onclick="changeStyle('style1')">Style 1</button>
-  <button onclick="changeStyle('style2')">Style 2</button>
-  <button onclick="changeStyle('style3')">Style 3</button>
 
-  <body class="red">
+<body>
+<div class="page-wrap">
 
-  
-  <!-- Nav links -->
+  <!-- Clock -->
+  <div id="MyClockDisplay" class="clock"></div>
+  <script src="script.js"></script>
+
+  <!-- Header -->
+  <header>
+    <h1>aiden's index pgage</h1>
+
+  </header>
+
+  <!-- Style switcher -->
+  <div class="style-bar">
+    <button onclick="changeStyle('style1')">Style 1</button>
+    <button onclick="changeStyle('style2')">Style 2</button>
+    <button onclick="changeStyle('style3')">Style 3</button>
+  </div>
+
+  <!-- Nav -->
   <nav>
-    <h1>
-      <a href="ThreePage/red.html">3 Page</a> |
-      <a href="FivePage/template.html"> 5 Page Template</a>|
-      <a href="FivePage/index.html">5 Page Website</a>|
-      <a href="PsuedoElements/starter.html"> Psuedo Elements</a>|
-      <a href="FivePageAnimated/index.html"> 5 Animated</a>|
-      <a href="CssZenPatel/index.html"> CSS Zen Garden</a>|
-      <a href="FlexBox/flexboxpractice.html"> FlexBox </a>|
-      <a href="FlexBox/"> Tailwind </a>|
-      <a href="Bootstrap/"> Bootstrap</a>|
-      <a href="JavascriptGames/index.html"> Javascript Breakout Game</a>|
-      <a href="javascript-basic-projects/"> Javascript basic projects</a>|
-    </h1>     
+    <div class="nav-label">Navigation</div>
+    <div class="link-grid">
+      <a href="ThreePage/red.html">3 Page</a>
+      <a href="FivePage/template.html">5 Page Template</a>
+      <a href="FivePage/index.html">5 Page Website</a>
+      <a href="PsuedoElements/starter.html">Pseudo Elements</a>
+      <a href="FivePageAnimated/index.html">5 Animated</a>
+      <a href="CssZenPatel/index.html">CSS Zen Garden</a>
+      <a href="FlexBox/flexboxpractice.html">FlexBox</a>
+      <a href="FlexBox/">Tailwind</a>
+      <a href="Bootstrap/">Bootstrap</a>
+      <a href="JavascriptGames/index.html">JS Breakout Game</a>
+      <a href="javascript-basic-projects/">JS Basic Projects</a>
+      <a href="claudeai/funUtils.html">Claude AI</a>
+    </div>
   </nav>
 
-<div class="container">
-    <p1 id="joke">Loading joke...</p1>
+  <!-- ── Joke Generator ── -->
+  <p class="section-label">Dad Joke Generator</p>
+  <div class="widget-card">
+    <div class="output-box loading" id="joke">Loading joke...</div>
     <button id="jokeBtn">Get New Joke</button>
-</div>
+  </div>
 
-<script>
-    const jokeEl = document.getElementById('joke');
+  <script>
+    const jokeEl   = document.getElementById('joke');
     const buttonEl = document.getElementById('jokeBtn');
-
-
-    const url = 'https://icanhazdadjoke.com/';
+    const url      = 'https://icanhazdadjoke.com/';
 
     async function getJoke() {
-        jokeEl.innerHTML = 'Thinking...';
-        
-        try {
-            const response = await fetch(url, {
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
-
-            const data = await response.json();
-            
-            
-            jokeEl.innerHTML = data.joke;
-        } catch (error) {
-            jokeEl.innerHTML = 'Dad is sleeping... (Error)';
-        }
+      jokeEl.classList.add('loading');
+      jokeEl.innerHTML = 'Thinking...';
+      try {
+        const response = await fetch(url, { headers: { 'Accept': 'application/json' } });
+        const data = await response.json();
+        jokeEl.innerHTML = data.joke;
+      } catch {
+        jokeEl.innerHTML = 'Dad is sleeping... (Error)';
+      }
+      jokeEl.classList.remove('loading');
     }
 
     buttonEl.addEventListener('click', getJoke);
-    
-   
     getJoke();
-</script>
+  </script>
 
+  <!-- ── Zelda Character API ── -->
+  <p class="section-label">Zelda Character API</p>
+  <div class="widget-card">
+    <button id="randomBtn">Find a Random Character</button>
+    <div id="card">
+      <h2 id="charName">Press the button!</h2>
+      <p id="charDesc">Who will appear?</p>
+    </div>
+  </div>
 
+  <script>
+    const btn         = document.getElementById('randomBtn');
+    const nameDisplay = document.getElementById('charName');
+    const descDisplay = document.getElementById('charDesc');
 
+    btn.addEventListener('click', async () => {
+      nameDisplay.textContent = 'Searching...';
+      descDisplay.textContent = '';
+      try {
+        const response   = await fetch('https://zelda.fanapis.com/api/characters');
+        const result     = await response.json();
+        const characters = result.data;
+        const randomChar = characters[Math.floor(Math.random() * characters.length)];
+        nameDisplay.textContent = randomChar.name;
+        descDisplay.textContent = randomChar.description || 'A mysterious figure with no known history.';
+      } catch {
+        nameDisplay.textContent = 'Error!';
+        descDisplay.textContent = 'Could not fetch character data.';
+      }
+    });
+  </script>
+
+  <!-- ── Meme Generator ── -->
+  <p class="section-label">Random Meme Generator</p>
+  <div class="widget-card">
+    <button id="get-meme">Gimme a Meme!</button>
+    <h3 id="meme-title"></h3>
+    <img id="meme-img" src="" alt="Random Meme">
+  </div>
+
+  <script>
+    const btn1  = document.getElementById('get-meme');
+    const title = document.getElementById('meme-title');
+    const img   = document.getElementById('meme-img');
+
+    async function fetchMeme() {
+      try {
+        const response = await fetch('https://meme-api.com/gimme');
+        const data     = await response.json();
+        title.innerText  = data.title;
+        img.src          = data.url;
+        img.style.display = 'block';
+      } catch (error) {
+        console.error('Error fetching meme:', error);
+        title.innerText = 'Failed to load meme. Try again!';
+      }
+    }
+
+    btn1.addEventListener('click', fetchMeme);
+  </script>
+
+</div>
 </body>
 </html>
-
